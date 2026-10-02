@@ -19,4 +19,6 @@ python3 -m http.server 8000
 
 ## Deploy
 
-Push to `main`; GitHub Pages serves the repo root.
+Push to `main`. The [Deploy to GitHub Pages](.github/workflows/deploy.yml) workflow regenerates the text pages, bundles the site (excluding `tools/`, `.github/` and this README) and deploys it. It can also be run by hand from the Actions tab.
+
+The custom domain (`overvue.in`) and Enforce HTTPS are set in the repo's Settings → Pages; DNS is at GoDaddy (4 A records to GitHub Pages IPs, `www` CNAME to `amarkum.github.io`).
