@@ -9,5 +9,4 @@
 <path d="M104 27a7 7 0 0 1 7-7h18a7 7 0 0 1 7 7v2h-32z" fill="#08BDB1"/>
 <rect x="114" y="35" width="12" height="8" rx="2" fill="#08BDB1" opacity="0.25"/>
 <circle cx="120" cy="39" r="2.4" fill="#08BDB1"/>
-<path d="M30 26 Q30.72 29.28 34 30 Q30.72 30.72 30 34 Q29.28 30.72 26 30 Q29.28 29.28 30 26Z" fill="#4FD1C1"/>
 </svg>

@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>(function(){try{var t=localStorage.getItem('overvue-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&icon_names=account_balance,account_balance_wallet,arrow_upward,bar_chart,check_circle,chevron_right,credit_card,directions_car,edit_calendar,home,info,keyboard_arrow_down,local_cafe,north_east,payments,receipt_long,shopping_bag,shopping_cart,show_chart,south_west,visibility&display=block" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&icon_names=account_balance,account_balance_wallet,arrow_upward,bar_chart,check_circle,chevron_right,credit_card,directions_car,home,info,keyboard_arrow_down,local_cafe,north_east,payments,receipt_long,shopping_bag,shopping_cart,show_chart,south_west,visibility&display=block" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
 
   <script type="application/ld+json">
@@ -61,9 +61,19 @@
   <div class="wrap">
     <a href="/" class="brand" aria-label="Overvue home"><img src="/assets/img/mark.png" alt="" width="28" height="28"> Overvue</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#features">Features</a>
+      <div class="nav-menu">
+        <a href="/features/" class="nav-menu-btn" aria-haspopup="true">Features</a>
+        <div class="nav-menu-panel">
+          <a href="/net-worth-tracker/">Net worth tracker</a>
+          <a href="/expense-tracker/">Expense tracker</a>
+          <a href="/budget-planner/">Budget planner</a>
+          <a href="/lend-borrow-tracker/">Lend &amp; borrow tracker</a>
+          <a href="/credit-card-tracker/">Credit card tracker</a>
+          <a href="/features/" class="all">All features</a>
+        </div>
+      </div>
       <a href="#how">How it works</a>
-      <a href="#privacy">Privacy</a>
+      <a href="/faq/">FAQ</a>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme"><svg class="sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
       <a class="btn btn-primary btn-sm" href="#get">Get the app</a>
     </nav>
@@ -143,7 +153,7 @@
               </div>
               <!-- Budget: PageHeader, summary, MonthlyBudgetPredictionCard -->
               <div class="pane" id="pane-budget" role="tabpanel" aria-labelledby="tab-budget" hidden>
-                <div class="ph"><div class="grow"><h5>Budget</h5><p data-month-year>October 2026</p></div><span class="hbtn"><span class="ms" aria-hidden="true">edit_calendar</span></span></div>
+                <div class="ph"><div class="grow"><h5>Budget</h5><p data-month-year>October 2026</p></div><span class="hbtn"><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.25 4.75q1.5-1.5 3 0l1 1q1.5 1.5 0 3L8.5 19.5 4 20l.5-4.5zM13.5 6.5l4 4"/></svg></span></div>
                 <div class="sc r24 mt20">
                   <div class="ctitle"><span class="lbl grow">Spent this month</span><span class="pill pos">65% used</span></div>
                   <div class="amt34 mt6"><span data-inr="32500">₹32,500</span></div>
@@ -157,7 +167,7 @@
                 <div class="sc r24 mt16">
                   <div class="ctitle">
                     <div class="grow"><div class="tm">Spending forecast</div><div class="sub13 mt3">At your current daily pace</div></div>
-                    <span class="mchip"><span data-month-short-year>Oct 2026</span><span class="ms" aria-hidden="true">keyboard_arrow_down</span></span>
+                    <span class="mchip"><span data-month>October</span><span class="ms" aria-hidden="true">keyboard_arrow_down</span></span>
                   </div>
                   <div class="amt28 pos mt20"><span data-inr="47976">₹47,976</span></div>
                   <div class="sub13 mt4">Projected month-end spend</div>
@@ -260,8 +270,132 @@
       </article>
       <article class="card">
         <img class="art art-dark" src="/assets/illustrations/card-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art art-light" src="/assets/illustrations/card-light.svg" alt="" width="168" height="126" loading="lazy">
-        <h3>Due dates &amp; reminders</h3>
-        <p>Card bills show when they're due, and an optional daily reminder nudges you to log the day's spending.</p>
+        <h3>Card bills, on time</h3>
+        <p>Each card shows what you owe and when the bill is due, and logging a payment brings the balance down.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Screens ================= -->
+<section id="screens" class="divider">
+  <div class="wrap">
+    <div class="gallery-head">
+      <div class="sec-head">
+        <h2>A closer look.</h2>
+        <p>Real screens from the app. Flip the theme switch up top to see them in light or dark.</p>
+      </div>
+      <div class="gallery-nav" hidden>
+        <button type="button" data-gallery="prev" aria-label="Previous screens"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg></button>
+        <button type="button" data-gallery="next" aria-label="Next screens"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="gallery" tabindex="0" role="region" aria-label="App screens">
+    <figure class="shot">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="home" src="/assets/shots/in/home-dark.webp" alt="Overvue Home screen with net worth and this month's budget" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Home</b><span>Net worth and this month's budget, at a glance.</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="budget" src="/assets/shots/in/budget-dark.webp" alt="Budget screen with what's left to spend and a month-end forecast" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Budget</b><span>What's left, a daily allowance and a month-end forecast.</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="accounts" src="/assets/shots/in/accounts-dark.webp" alt="Accounts screen listing cash, bank accounts, credit cards and investments" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Accounts</b><span>Cash, banks, cards and investments in one list.</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="stats" src="/assets/shots/in/stats-dark.webp" alt="Stats screen with income, spending, savings rate and a category breakdown" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Stats</b><span>Income, spending and savings rate, with a category breakdown.</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="add" src="/assets/shots/in/add-dark.webp" alt="Add expense screen with a number pad and category shortcuts" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Add</b><span>Type the amount, tap a category, done.</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="activity" src="/assets/shots/in/activity-dark.webp" alt="Activity screen listing entries by day" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Activity</b><span>Every entry, grouped by day with the day's total.</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="categories" src="/assets/shots/in/categories-dark.webp" alt="Categories screen with built-in and custom categories" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Categories</b><span>Built-in categories, plus your own.</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="banks" src="/assets/shots/in/banks-dark.webp" alt="Add bank account screen showing banks from the selected country" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Your banks</b><span>Banks and card issuers from your country come first.</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="profile" src="/assets/shots/in/profile-dark.webp" alt="Profile sheet with plan, subscription, settings and help" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Profile</b><span>Your plan, subscription and settings in one place.</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="months" src="/assets/shots/in/months-dark.webp" alt="Month picker showing the months of the year" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Any month</b><span>Jump to any month or year.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= More features ================= -->
+<section id="more" class="divider">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The small things, done well.</h2>
+      <p>Quick to log, easy to read, and set up the way you like it.</p>
+    </div>
+    <div class="grid minis">
+      <article class="card">
+        <img class="art art-dark" src="/assets/illustrations/globe-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art art-light" src="/assets/illustrations/globe-light.svg" alt="" width="168" height="126" loading="lazy">
+        <div><h3>Banks from your country</h3><p>Choose your country and its banks and card issuers come first. Over 170 of them, across 27 countries.</p></div>
+      </article>
+      <article class="card">
+        <img class="art art-dark" src="/assets/illustrations/tags-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art art-light" src="/assets/illustrations/tags-light.svg" alt="" width="168" height="126" loading="lazy">
+        <div><h3>Categories your way</h3><p>Built-in categories cover the everyday. Add your own with an icon, and rename or remove them any time.</p></div>
+      </article>
+      <article class="card">
+        <img class="art art-dark" src="/assets/illustrations/activity-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art art-light" src="/assets/illustrations/activity-light.svg" alt="" width="168" height="126" loading="lazy">
+        <div><h3>Logged in seconds</h3><p>Type the amount and tap a category. The account, date and a note are one tap away when you need them.</p></div>
+      </article>
+      <article class="card">
+        <img class="art art-dark" src="/assets/illustrations/calendar-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art art-light" src="/assets/illustrations/calendar-light.svg" alt="" width="168" height="126" loading="lazy">
+        <div><h3>Any month, any year</h3><p>Look back at any month or year from Budget and Activity, with a quick month and year picker.</p></div>
+      </article>
+      <article class="card">
+        <img class="art art-dark" src="/assets/illustrations/bell-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art art-light" src="/assets/illustrations/bell-light.svg" alt="" width="168" height="126" loading="lazy">
+        <div><h3>A gentle daily reminder</h3><p>Pick a time and Overvue reminds you once a day to log what you spent. Off until you turn it on.</p></div>
+      </article>
+      <article class="card">
+        <img class="art art-dark" src="/assets/illustrations/ai-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art art-light" src="/assets/illustrations/ai-light.svg" alt="" width="168" height="126" loading="lazy">
+        <div><h3>Overvue AI, if you want it</h3><p>Ask about your money in plain words and get short, clear answers. It stays off until you switch it on.</p></div>
       </article>
     </div>
   </div>
@@ -290,7 +424,7 @@
         <div class="ui">
           <div class="island" aria-hidden="true"></div><div class="statusbar" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
           <div class="content">
-            <div class="ph"><div class="grow"><h5>Budget</h5><p data-month-year>October 2026</p></div><span class="hbtn"><span class="ms" aria-hidden="true">edit_calendar</span></span></div>
+            <div class="ph"><div class="grow"><h5>Budget</h5><p data-month-year>October 2026</p></div><span class="hbtn"><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.25 4.75q1.5-1.5 3 0l1 1q1.5 1.5 0 3L8.5 19.5 4 20l.5-4.5zM13.5 6.5l4 4"/></svg></span></div>
             <div class="sc r24 mt20">
               <div class="ctitle"><span class="lbl grow">Spent this month</span><span class="pill pos">65% used</span></div>
               <div class="amt34 mt6"><span data-inr="32500">₹32,500</span></div>
@@ -304,7 +438,7 @@
             <div class="sc r24 mt16">
               <div class="ctitle">
                 <div class="grow"><div class="tm">Spending forecast</div><div class="sub13 mt3">At your current daily pace</div></div>
-                <span class="mchip"><span data-month-short-year>Oct 2026</span><span class="ms" aria-hidden="true">keyboard_arrow_down</span></span>
+                <span class="mchip"><span data-month>October</span><span class="ms" aria-hidden="true">keyboard_arrow_down</span></span>
               </div>
               <div class="amt28 pos mt20"><span data-inr="47976">₹47,976</span></div>
               <div class="sub13 mt4">Projected month-end spend</div>
@@ -339,6 +473,7 @@
 <section id="privacy" class="divider">
   <div class="wrap">
     <div class="sec-head center">
+      <img class="art sec-art art-dark" src="/assets/illustrations/shield-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art sec-art art-light" src="/assets/illustrations/shield-light.svg" alt="" width="168" height="126" loading="lazy">
       <h2>Your money. Your data.</h2>
       <p>Overvue is built so you stay in control of what it knows.</p>
     </div>
@@ -390,8 +525,17 @@
         <a href="/#privacy">Privacy</a>
         <a href="/#get">Get the app</a>
       </nav>
+      <nav class="foot-col" aria-label="Features">
+        <h4>Features</h4>
+        <a href="/net-worth-tracker/">Net worth tracker</a>
+        <a href="/expense-tracker/">Expense tracker</a>
+        <a href="/budget-planner/">Budget planner</a>
+        <a href="/lend-borrow-tracker/">Lend &amp; borrow tracker</a>
+        <a href="/credit-card-tracker/">Credit card tracker</a>
+      </nav>
       <nav class="foot-col" aria-label="Help">
         <h4>Help</h4>
+        <a href="/faq/">FAQ</a>
         <a href="/support/">Support</a>
         <a href="mailto:support@overvue.in">support@overvue.in</a>
       </nav>
@@ -461,6 +605,55 @@
   } else {
     start();
   }
+})();
+</script>
+<script>
+// Screen gallery: show the renders for the visitor's theme and region, and page through them with the arrows.
+(function () {
+  var g = document.querySelector('.gallery');
+  if (!g) return;
+  var root = document.documentElement;
+  var imgs = Array.prototype.slice.call(g.querySelectorAll('img[data-shot]'));
+  function sync() {
+    var theme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    var region = (root.getAttribute('data-region') || 'IN') === 'IN' ? 'in' : 'us'; // renders exist for India and the US
+    imgs.forEach(function (img) {
+      var src = '/assets/shots/' + region + '/' + img.getAttribute('data-shot') + '-' + theme + '.webp';
+      if (img.getAttribute('src') !== src) img.setAttribute('src', src);
+    });
+  }
+  sync();
+  new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['data-theme', 'data-region'] });
+  // Lazy images clipped by the scroller would only load as they slide in, so fetch the set once the gallery is near.
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      imgs.forEach(function (img) { img.loading = 'eager'; });
+      io.disconnect();
+    }, { rootMargin: '600px 0px' });
+    io.observe(g);
+  }
+
+  var nav = document.querySelector('.gallery-nav');
+  var prev = document.querySelector('[data-gallery="prev"]'), next = document.querySelector('[data-gallery="next"]');
+  if (!nav || !prev || !next) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function page(dir) {
+    var style = getComputedStyle(g), first = g.querySelector('.shot');
+    var step = first.offsetWidth + (parseFloat(style.columnGap) || 0);
+    var count = Math.max(1, Math.floor((g.clientWidth - parseFloat(style.paddingLeft)) / step));
+    g.scrollBy({ left: dir * count * step, behavior: reduce ? 'auto' : 'smooth' });
+  }
+  function ends() {
+    prev.disabled = g.scrollLeft <= 2;
+    next.disabled = g.scrollLeft >= g.scrollWidth - g.clientWidth - 2;
+  }
+  prev.addEventListener('click', function () { page(-1); });
+  next.addEventListener('click', function () { page(1); });
+  g.addEventListener('scroll', ends, { passive: true });
+  window.addEventListener('resize', ends);
+  nav.hidden = false;
+  ends();
 })();
 </script>
 

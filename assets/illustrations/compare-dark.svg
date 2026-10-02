@@ -2,5 +2,4 @@
 <rect x="44" y="34" width="22" height="4" rx="2" fill="#354C52"/>
 <rect x="48" y="54" width="9" height="30" rx="3" fill="#354C52"/><rect x="60" y="40" width="9" height="44" rx="3" fill="#08BDB1"/><rect x="74" y="44" width="9" height="40" rx="3" fill="#354C52"/><rect x="86" y="58" width="9" height="26" rx="3" fill="#08BDB1"/><rect x="100" y="62" width="9" height="22" rx="3" fill="#354C52"/><rect x="112" y="48" width="9" height="36" rx="3" fill="#08BDB1"/>
 <path d="M44 86H116" stroke="#354C52" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M128 19.5 Q128.81 23.19 132.5 24 Q128.81 24.81 128 28.5 Q127.19 24.81 123.5 24 Q127.19 23.19 128 19.5Z" fill="#7BF2D3"/>
 </svg>

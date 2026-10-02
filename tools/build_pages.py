@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generates the text pages (privacy, terms, support, 404) from a shared shell.
+"""Generates the text pages (privacy, terms, support, FAQ, 404), the feature pages and sitemap.xml from a shared shell.
 
 Run from the repo root:  python3 tools/build_pages.py
 index.html is hand-written and not touched here.
@@ -18,7 +18,12 @@ SHELL = """<!doctype html>
   <meta name="theme-color" content="#081316">
   <link rel="canonical" href="https://overvue.in{path}">
   {robots}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Overvue">
   <meta property="og:title" content="{title} — Overvue">
+  <meta property="og:description" content="{desc}">
+  <meta property="og:url" content="https://overvue.in{path}">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:image" content="https://overvue.in/assets/img/og-image.png">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
@@ -28,7 +33,7 @@ SHELL = """<!doctype html>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>(function(){{try{{var t=localStorage.getItem('overvue-theme');if(t==='light'||t==='dark'){{document.documentElement.setAttribute('data-theme',t);}}}}catch(e){{}}}})();</script>
   <link rel="stylesheet" href="/assets/css/style.css">
-</head>
+{schema}</head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-apple" viewBox="0 0 24 24"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
@@ -40,18 +45,13 @@ SHELL = """<!doctype html>
   <div class="wrap">
     <a href="/" class="brand" aria-label="Overvue home"><img src="/assets/img/mark.png" alt="" width="28" height="28"> Overvue</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="/#features">Features</a>
-      <a href="/support/">Support</a>
+{nav}
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme"><svg class="sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
       <a class="btn btn-primary btn-sm" href="/#get">Get the app</a>
     </nav>
   </div>
 </header>
-<main class="doc">
-  <div class="wrap">
-{body}
-  </div>
-</main>
+{main}
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -70,8 +70,10 @@ SHELL = """<!doctype html>
         <a href="/#privacy">Privacy</a>
         <a href="/#get">Get the app</a>
       </nav>
+{foot_features}
       <nav class="foot-col" aria-label="Help">
         <h4>Help</h4>
+        <a href="/faq/">FAQ</a>
         <a href="/support/">Support</a>
         <a href="mailto:support@overvue.in">support@overvue.in</a>
       </nav>
@@ -206,16 +208,252 @@ NOTFOUND = """    <h1>Page not found</h1>
     <p><a href="/">Back to the Overvue home page</a></p>
 """
 
-PAGES = [
-    ("privacy-policy/index.html", "/privacy-policy/", "Privacy Policy", "How Overvue handles your information.", PRIVACY, True),
-    ("terms-of-service/index.html", "/terms-of-service/", "Terms of Service", "The terms for using Overvue.", TERMS, True),
-    ("support/index.html", "/support/", "Support", "Get help with the Overvue app.", SUPPORT, True),
-    ("404.html", "/404.html", "Page not found", "Page not found.", NOTFOUND, False),
+import json
+from html import escape
+
+# Feature pages: one per search intent. Each gets its own title, description, FAQ (FAQPage schema) and breadcrumb.
+FEATURES = [
+    {
+        "slug": "net-worth-tracker", "nav": "Net worth tracker", "art": "welcome",
+        "title": "Net Worth Tracker App",
+        "desc": "Track your net worth in one place. Overvue adds up your bank balances and money lent, subtracts card debt and loans, and shows the trend over time.",
+        "h1": "A net worth tracker that gives you one number you can trust",
+        "lede": "Overvue adds up everything you own and subtracts everything you owe, so you always know what you're actually worth today, not just what's sitting in one account.",
+        "sections": [
+            ("How Overvue calculates your net worth", "<p>Your net worth is your liquid balances plus money you've lent, minus debt such as credit card balances and money you've borrowed. Overvue shows the total as a hero number on the Home screen and splits it into liquid cash, money lent and debt, so you can see what's moving it.</p>"),
+            ("Watch your net worth over time", "<p>A trend chart tracks how your net worth changes month to month, with the change shown in both amount and percentage. It's the quickest way to see whether you're really getting ahead.</p>"),
+            ("No bank logins needed", "<p>Overvue is manual-entry. You add your accounts and balances yourself, so the app never asks for bank passwords, card PINs or one-time codes.</p>"),
+        ],
+        "ticks": ["Net worth as a single hero number", "Breakdown into liquid cash, money lent and debt", "Month-over-month trend chart", "Works with any default currency"],
+        "faq": [
+            ("What is a net worth tracker?", "A net worth tracker adds up what you own (cash, bank balances, money owed to you) and subtracts what you owe (credit card balances, loans) to give you one figure for your overall financial position."),
+            ("Does Overvue connect to my bank to track net worth?", "No. You enter balances yourself, so Overvue never needs your bank credentials."),
+            ("Does money I've lent count toward my net worth?", "Yes. Money you've lent counts as an asset, and money you've borrowed counts as debt."),
+        ],
+    },
+    {
+        "slug": "expense-tracker", "nav": "Expense tracker", "art": "spending",
+        "title": "Expense Tracker App",
+        "desc": "Log expenses and income in a couple of taps, see spending by category, compare with last month and track your savings rate with Overvue.",
+        "h1": "An expense tracker that explains where your money went",
+        "lede": "Log an expense or income in a couple of taps from the + button, and Overvue turns it into clear stats: spending by category, trends against last month and your savings rate.",
+        "sections": [
+            ("Log spending in seconds", "<p>Tap +, enter the amount, pick a category and the account it came from. Expenses, income and card payments all go through the same quick flow, and your balances update instantly.</p>"),
+            ("Spending by category", "<p>The Stats screen breaks down where your money went this month by category, so you can spot the food delivery habit or the subscription you forgot about.</p>"),
+            ("Trends and savings rate", "<p>Compare this month with last month and see your savings rate, the share of your income you kept. Turn on Overvue AI if you'd like short notes on what changed.</p>"),
+            ("A daily nudge", "<p>An optional daily reminder prompts you to log the day's spending, so your numbers stay accurate without effort.</p>"),
+        ],
+        "ticks": ["Expenses, income and card payments in one flow", "Spending by category", "Month-over-month comparison", "Savings rate", "Optional daily logging reminder"],
+        "faq": [
+            ("Is Overvue a free expense tracker?", "Overvue is launching on iPhone and Android. Check the App Store or Google Play listing for current pricing."),
+            ("Can I track income as well as expenses?", "Yes. You can log income alongside expenses, and Overvue uses both to work out your savings rate."),
+            ("Does Overvue read my SMS or bank statements?", "No. You log transactions yourself; Overvue doesn't read your messages or connect to your bank."),
+        ],
+    },
+    {
+        "slug": "budget-planner", "nav": "Budget planner", "art": "budget",
+        "title": "Monthly Budget Planner App",
+        "desc": "Set one monthly budget, see what's left to spend per day and get a month-end forecast so overspending never sneaks up on you.",
+        "h1": "A monthly budget planner that warns you early",
+        "lede": "Set one monthly spending limit and Overvue keeps score. The bar turns from teal to amber to red as you spend, and a forecast shows where the month will land.",
+        "sections": [
+            ("One simple monthly limit", "<p>No envelopes to juggle. Set a single monthly budget and Overvue tracks every expense against it, showing how much you've spent and the percentage used.</p>"),
+            ("Left to spend, per day", "<p>See how much is left this month and what that means per day for the days remaining, so you know exactly what today's budget is.</p>"),
+            ("Month-end spending forecast", "<p>Based on your current daily pace, Overvue projects your month-end spend and tells you whether you're on track to stay under budget, and by how much.</p>"),
+        ],
+        "ticks": ["One monthly spending limit, tracked daily", "Left to spend and your per-day pace", "Month-end forecast from your current spending", "Colour-coded progress from teal to amber to red"],
+        "faq": [
+            ("How does the budget forecast work?", "Overvue takes how much you've spent so far this month, works out your daily pace, and projects it to the end of the month."),
+            ("Can I change my budget mid-month?", "Yes. You can edit your monthly limit at any time and the progress and forecast update straight away."),
+        ],
+    },
+    {
+        "slug": "lend-borrow-tracker", "nav": "Lend & borrow tracker", "art": "lend",
+        "title": "Money Lent & Borrowed Tracker",
+        "desc": "Keep track of money you've lent to friends or borrowed from them. Overvue counts it toward your net worth so nothing slips through.",
+        "h1": "Track money you've lent and borrowed, without the awkward reminders",
+        "lede": "Lent a friend money for a trip? Borrowed from family? Log it in Overvue and it counts toward your net worth, so you always know who owes whom.",
+        "sections": [
+            ("Log loans to and from friends", "<p>Record money you've lent or borrowed with the person's name and amount, straight from the + button. Mark repayments as they come in.</p>"),
+            ("Counted in your net worth", "<p>Money you've lent is added to your net worth as an asset, and money you've borrowed is subtracted as debt, so your total reflects reality.</p>"),
+            ("Never lose track", "<p>Everything sits in one list instead of scattered chat messages, so a forgotten loan doesn't quietly disappear.</p>"),
+        ],
+        "ticks": ["Money lent and money borrowed in one place", "Counted toward your net worth", "Logged from the same quick + flow", "Synced across your devices"],
+        "faq": [
+            ("Can I track money I lent to a friend?", "Yes. Log it as money lent and Overvue keeps it in your net worth until it's repaid."),
+            ("Does Overvue message the person who owes me?", "No. Your entries are private to your account; Overvue doesn't contact anyone."),
+        ],
+    },
+    {
+        "slug": "credit-card-tracker", "nav": "Credit card tracker", "art": "card",
+        "title": "Credit Card Bill & Due Date Tracker",
+        "desc": "Keep credit cards next to your bank accounts, track card payments and see when each bill is due with Overvue.",
+        "h1": "Keep your credit cards and their due dates in view",
+        "lede": "Overvue keeps your credit cards right next to your bank accounts, tracks card spending and payments, and shows when each bill is due.",
+        "sections": [
+            ("Cards and banks together", "<p>Add savings and current accounts and credit cards through one simple flow. Card balances count as debt in your net worth, so you see your true position.</p>"),
+            ("Track card payments", "<p>Log card spending and bill payments as you go. When you pay a card from a bank account, both balances update.</p>"),
+            ("Due dates at a glance", "<p>Each card shows when its bill is due, so a missed payment or late fee doesn't catch you out.</p>"),
+        ],
+        "ticks": ["Credit cards alongside bank accounts", "Card payments tracked", "Bill due dates shown on each card", "Card balances counted as debt"],
+        "faq": [
+            ("Do I need to link my credit card?", "No. You add the card and its balance yourself; Overvue never asks for card numbers, PINs or passwords."),
+            ("Does Overvue remind me about card bills?", "Each card shows its due date in the app, and you can turn on a daily reminder to keep your entries up to date."),
+        ],
+    },
 ]
 
-for out, path, title, desc, body, indexable in PAGES:
+GENERAL_FAQ = [
+    ("What is Overvue?", "Overvue is a personal finance app for iPhone and Android that shows your real net worth in one place: banks, cards, spending, budgets and money lent or borrowed."),
+    ("Does Overvue connect to my bank?", "No. You add balances and transactions yourself, so Overvue never needs your bank credentials."),
+    ("How is my net worth calculated?", "Your liquid balances plus money you've lent, minus debt such as credit card balances and money you've borrowed."),
+    ("Is my data private?", "Your data is stored under your own account in Google Firebase with access rules so only you can read it. Overvue has no ads and doesn't sell your data."),
+    ("Does it work across devices?", "Yes. Your entries sync to your account, so they follow you between phones."),
+    ("Can I use a currency other than rupees?", "Yes. Choose your default currency in Settings."),
+    ("Is there a light mode?", "Yes. Dark mode is the default; switch to light or system appearance in Settings."),
+    ("How do I delete my account?", "Email support@overvue.in from your sign-up address and we'll remove your account and its data."),
+]
+
+STORES = """      <div class="stores stores-center" aria-label="Download Overvue">
+        <a class="store-badge" href="https://apps.apple.com/app/overvue/id0000000000" target="_blank" rel="noopener" aria-label="Download Overvue on the App Store"><svg aria-hidden="true"><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=app.overvue.in" target="_blank" rel="noopener" aria-label="Get Overvue on Google Play"><svg aria-hidden="true"><use href="#i-play"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+      </div>"""
+
+def art(name, cls="art"):
+    return (f'<img class="{cls} art-dark" src="/assets/illustrations/{name}-dark.svg" alt="" width="168" height="126">'
+            f'<img class="{cls} art-light" src="/assets/illustrations/{name}-light.svg" alt="" width="168" height="126">')
+
+def nav_html(current):
+    items = "\n".join(
+        f'          <a href="/{f["slug"]}/"{" aria-current=\"page\"" if current == f["slug"] else ""}>{escape(f["nav"])}</a>'
+        for f in FEATURES)
+    return f"""      <div class="nav-menu">
+        <a href="/features/" class="nav-menu-btn" aria-haspopup="true">Features</a>
+        <div class="nav-menu-panel">
+{items}
+          <a href="/features/" class="all">All features</a>
+        </div>
+      </div>
+      <a href="/faq/">FAQ</a>
+      <a href="/support/">Support</a>"""
+
+FOOT_FEATURES = '      <nav class="foot-col" aria-label="Features">\n        <h4>Features</h4>\n' + "\n".join(
+    f'        <a href="/{f["slug"]}/">{escape(f["nav"])}</a>' for f in FEATURES) + "\n      </nav>"
+
+def ld(obj):
+    return '  <script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>\n"
+
+def faq_ld(faq):
+    return ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]})
+
+def crumbs_ld(*trail):
+    return ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": n, "item": "https://overvue.in" + u} for i, (n, u) in enumerate(trail)]})
+
+def faq_html(faq):
+    return "\n".join(f'      <details class="faq-item"><summary>{escape(q)}</summary><p>{escape(a)}</p></details>' for q, a in faq)
+
+def cta():
+    return f"""<section class="feat-cta">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Know where you stand.</h2>
+      <p>Overvue is launching on iPhone and Android.</p>
+{STORES}
+    </div>
+  </div>
+</section>"""
+
+def doc_main(body):
+    return f'<main class="doc">\n  <div class="wrap">\n{body}\n  </div>\n</main>'
+
+def feature_main(f):
+    secs = "\n".join(f"      <h2>{escape(h)}</h2>\n      {b}" for h, b in f["sections"])
+    ticks = "\n".join(f"        <li>{escape(t)}</li>" for t in f["ticks"])
+    related = "\n".join(
+        f'      <a class="card rel" href="/{o["slug"]}/">{art(o["art"])}<h3>{escape(o["nav"])}</h3><p>{escape(o["desc"])}</p></a>'
+        for o in FEATURES if o is not f)
+    return f"""<main>
+<section class="feat-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/features/">Features</a> / <span>{escape(f["nav"])}</span></nav>
+    {art(f["art"], "feat-art")}
+    <h1>{escape(f["h1"])}</h1>
+    <p class="lede">{escape(f["lede"])}</p>
+  </div>
+</section>
+<section class="doc feat-body">
+  <div class="wrap">
+{secs}
+      <ul class="ticks">
+{ticks}
+      </ul>
+      <h2>Frequently asked questions</h2>
+{faq_html(f["faq"])}
+  </div>
+</section>
+<section class="divider">
+  <div class="wrap">
+    <div class="sec-head"><h2>More from Overvue</h2></div>
+    <div class="grid">
+{related}
+    </div>
+  </div>
+</section>
+{cta()}
+</main>"""
+
+def hub_main():
+    cards = "\n".join(
+        f'      <a class="card rel" href="/{f["slug"]}/">{art(f["art"])}<h3>{escape(f["title"])}</h3><p>{escape(f["desc"])}</p></a>'
+        for f in FEATURES)
+    return f"""<main>
+<section class="feat-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Features</span></nav>
+    <h1>Personal finance features, all in one app</h1>
+    <p class="lede">Overvue is a net worth tracker, expense tracker, budget planner and loan tracker in one place, with no bank logins and no ads.</p>
+  </div>
+</section>
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="grid">
+{cards}
+    </div>
+  </div>
+</section>
+{cta()}
+</main>"""
+
+FAQ_BODY = "    <h1>Frequently asked questions</h1>\n    <p class=\"meta\">Quick answers about the Overvue personal finance app.</p>\n" + faq_html(GENERAL_FAQ) + \
+    '\n    <p style="margin-top:32px">Still stuck? See <a href="/support/">Support</a> or email <a href="mailto:support@overvue.in">support@overvue.in</a>.</p>'
+
+PAGES = [
+    ("privacy-policy/index.html", "/privacy-policy/", "Privacy Policy", "How Overvue handles your information.", doc_main(PRIVACY), True, ""),
+    ("terms-of-service/index.html", "/terms-of-service/", "Terms of Service", "The terms for using Overvue.", doc_main(TERMS), True, ""),
+    ("support/index.html", "/support/", "Support", "Get help with the Overvue app.", doc_main(SUPPORT), True, ""),
+    ("faq/index.html", "/faq/", "FAQ", "Answers to common questions about Overvue: bank connections, net worth, privacy, currencies, sync and account deletion.",
+     doc_main(FAQ_BODY), True, faq_ld(GENERAL_FAQ) + crumbs_ld(("Home", "/"), ("FAQ", "/faq/"))),
+    ("features/index.html", "/features/", "Features", "Overvue features: net worth tracker, expense tracker, monthly budget planner, lend and borrow tracker and credit card due dates, in one app.",
+     hub_main(), True, crumbs_ld(("Home", "/"), ("Features", "/features/"))),
+    ("404.html", "/404.html", "Page not found", "Page not found.", doc_main(NOTFOUND), False, ""),
+]
+for f in FEATURES:
+    path = f"/{f['slug']}/"
+    PAGES.append((f"{f['slug']}/index.html", path, f["title"], f["desc"], feature_main(f), True,
+                  faq_ld(f["faq"]) + crumbs_ld(("Home", "/"), ("Features", "/features/"), (f["nav"], path))))
+
+for out, path, title, desc, main, indexable, schema in PAGES:
     robots = "" if indexable else '<meta name="robots" content="noindex">'
+    current = path.strip("/")
     target = ROOT / out
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(SHELL.format(title=title, desc=desc, path=path, robots=robots, body=body), encoding="utf-8")
+    target.write_text(SHELL.format(title=title, desc=escape(desc), path=path, robots=robots, main=main, schema=schema,
+                                   nav=nav_html(current), foot_features=FOOT_FEATURES), encoding="utf-8")
     print("wrote", out)
+
+sitemap = "".join(f"  <url><loc>https://overvue.in{p[1]}</loc></url>\n" for p in PAGES if p[5])
+(ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                                  "  <url><loc>https://overvue.in/</loc></url>\n" + sitemap + "</urlset>\n", encoding="utf-8")
+print("wrote sitemap.xml")

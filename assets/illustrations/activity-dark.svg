@@ -3,5 +3,4 @@
 <rect x="63" y="53" width="28" height="3.5" rx="1.75" fill="#354C52"/><rect x="63" y="62" width="31" height="3.5" rx="1.75" fill="#354C52"/>
 <rect x="63" y="76" width="16" height="5" rx="2.5" fill="#08BDB1"/><rect x="83" y="76" width="14" height="5" rx="2.5" fill="#354C52"/>
 <circle cx="108" cy="28" r="12" fill="#08BDB1"/><path d="M108 22.5v11M102.5 28h11" fill="none" stroke="#081316" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M36 36 Q36.72 39.28 40 40 Q36.72 40.72 36 44 Q35.28 40.72 32 40 Q35.28 39.28 36 36Z" fill="#7BF2D3"/>
 </svg>
