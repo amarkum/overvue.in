@@ -8,7 +8,7 @@
   function current() { return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
   function apply(theme) {
     root.setAttribute('data-theme', theme);
-    if (meta) meta.setAttribute('content', theme === 'light' ? '#f4f5f7' : '#0a0a0c');
+    if (meta) meta.setAttribute('content', theme === 'light' ? '#f3f6f7' : '#081316');
     toggles.forEach(function (b) {
       b.setAttribute('aria-label', theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
     });
