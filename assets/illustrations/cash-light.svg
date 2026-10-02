@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120"><circle cx="80" cy="60" r="50" fill="#EBF3F3"/><rect x="36" y="36" width="74" height="42" rx="7" fill="#FFFFFF" stroke="#CFDCDD" stroke-width="1.5" transform="rotate(-8 73 57)"/>
+<rect x="42" y="46" width="74" height="42" rx="7" fill="#08BDB1"/>
+<rect x="47.5" y="51.5" width="63" height="31" rx="4" fill="none" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="1.5"/>
+<circle cx="79" cy="67" r="9" fill="#7BF2D3"/>
+<circle cx="79" cy="67" r="4" fill="#018287"/>
+<circle cx="56" cy="58" r="2" fill="#FFFFFF"/><circle cx="102" cy="76" r="2" fill="#FFFFFF"/>
+<circle cx="118" cy="88" r="11" fill="#7BF2D3" stroke="#FFFFFF" stroke-width="2"/>
+<circle cx="118" cy="88" r="6.5" fill="none" stroke="#018287" stroke-width="1.8"/>
+<circle cx="106" cy="94" r="8" fill="#FFFFFF" stroke="#CFDCDD" stroke-width="1.5"/>
+<circle cx="106" cy="94" r="4" fill="none" stroke="#DAE5E6" stroke-width="1.6"/>
+<path d="M126 27.5 Q126.81 31.19 130.5 32 Q126.81 32.81 126 36.5 Q125.19 32.81 121.5 32 Q125.19 31.19 126 27.5Z" fill="#4FD1C1"/>
+</svg>

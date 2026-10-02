@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120"><circle cx="80" cy="60" r="50" fill="#EBF3F3"/><path d="M48 52L80 32L112 52Z" fill="#08BDB1" stroke="#08BDB1" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="80" cy="45" r="3.5" fill="#FFFFFF"/>
+<rect x="50" y="52" width="60" height="5" rx="1.5" fill="#018287"/>
+<rect x="56" y="58" width="9" height="24" rx="2" fill="#FFFFFF" stroke="#CFDCDD" stroke-width="1.5"/><rect x="69" y="58" width="9" height="24" rx="2" fill="#FFFFFF" stroke="#CFDCDD" stroke-width="1.5"/><rect x="82" y="58" width="9" height="24" rx="2" fill="#FFFFFF" stroke="#CFDCDD" stroke-width="1.5"/><rect x="95" y="58" width="9" height="24" rx="2" fill="#FFFFFF" stroke="#CFDCDD" stroke-width="1.5"/>
+<rect x="46" y="83" width="68" height="7" rx="2.5" fill="#FFFFFF" stroke="#CFDCDD" stroke-width="1.5"/>
+<rect x="40" y="91" width="80" height="6" rx="3" fill="#DAE5E6"/>
+<circle cx="114" cy="36" r="10" fill="#08BDB1"/><path d="M109.5 36.5l3 3 6-6.5" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M38 40 Q38.72 43.28 42 44 Q38.72 44.72 38 48 Q37.28 44.72 34 44 Q37.28 43.28 38 40Z" fill="#4FD1C1"/>
+</svg>

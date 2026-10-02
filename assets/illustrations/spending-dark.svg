@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120"><circle cx="80" cy="60" r="50" fill="#1C2E32"/><circle cx="62" cy="60" r="32" fill="#22363B" stroke="#2E444A" stroke-width="1.5"/>
+<path d="M62 38 A22 22 0 0 1 73 79.05" fill="none" stroke="#08BDB1" stroke-width="9" stroke-linecap="round"/><path d="M70.95 80.1 A22 22 0 0 1 41.33 67.52" fill="none" stroke="#7BF2D3" stroke-width="9" stroke-linecap="round"/><path d="M40.65 65.32 A22 22 0 0 1 59.7 38.12" fill="none" stroke="#354C52" stroke-width="9" stroke-linecap="round"/>
+<rect x="98" y="40" width="34" height="40" rx="8" fill="#22363B" stroke="#2E444A" stroke-width="1.5"/>
+<circle cx="106" cy="50" r="3" fill="#08BDB1"/><rect x="112" y="48.5" width="14" height="3" rx="1.5" fill="#354C52"/>
+<circle cx="106" cy="60" r="3" fill="#7BF2D3"/><rect x="112" y="58.5" width="11" height="3" rx="1.5" fill="#354C52"/>
+<circle cx="106" cy="70" r="3" fill="#354C52"/><rect x="112" y="68.5" width="13" height="3" rx="1.5" fill="#354C52"/>
+<path d="M118 21.5 Q118.81 25.19 122.5 26 Q118.81 26.81 118 30.5 Q117.19 26.81 113.5 26 Q117.19 25.19 118 21.5Z" fill="#08BDB1"/>
+</svg>
