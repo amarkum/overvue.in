@@ -6,7 +6,7 @@
 <path d="M104 71a10 8 0 0 1 20 0z" fill="#354C52"/>
 
 <path d="M66 50Q80 40 94 50" fill="none" stroke="#08BDB1" stroke-width="3" stroke-linecap="round"/>
-<path d="M88 44.5L94.5 50.5L86.5 53" fill="none" stroke="#08BDB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M92.2 43.2L94 50L87 50.6" fill="none" stroke="#08BDB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M94 72Q80 82 66 72" fill="none" stroke="#354C52" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/>
 <circle cx="80" cy="62" r="8" fill="#7BF2D3" stroke="#22363B" stroke-width="2"/>
 <circle cx="80" cy="62" r="4" fill="none" stroke="#018287" stroke-width="1.6"/>
