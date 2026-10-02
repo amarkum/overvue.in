@@ -38,7 +38,7 @@ SHELL = """<!doctype html>
 </svg>
 <header class="nav">
   <div class="wrap">
-    <a href="/" class="brand" aria-label="Overvue home"><img src="/assets/img/mark.png" alt="" width="26" height="28"> Overvue</a>
+    <a href="/" class="brand" aria-label="Overvue home"><img src="/assets/img/mark.png" alt="" width="29" height="28"> Overvue</a>
     <nav class="nav-links" aria-label="Primary">
       <a href="/#features">Features</a>
       <a href="/support/">Support</a>
@@ -56,7 +56,7 @@ SHELL = """<!doctype html>
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="/" class="brand" aria-label="Overvue home"><img src="/assets/img/mark.png" alt="" width="26" height="28"> Overvue</a>
+        <a href="/" class="brand" aria-label="Overvue home"><img src="/assets/img/mark.png" alt="" width="29" height="28"> Overvue</a>
         <p>Your banks, cards, budgets and the money you've lent or borrowed, in one place. One number you can trust.</p>
         <div class="stores foot-stores" aria-label="Download Overvue">
           <a class="store-badge" href="https://apps.apple.com/app/overvue/id0000000000" target="_blank" rel="noopener" aria-label="Download Overvue on the App Store"><svg aria-hidden="true"><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
