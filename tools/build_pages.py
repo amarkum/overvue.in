@@ -4,6 +4,7 @@
 Run from the repo root:  python3 tools/build_pages.py
 index.html is hand-written and not touched here.
 """
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -13,17 +14,21 @@ SHELL = """<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title} — Overvue</title>
+  <title>{full_title}</title>
   <meta name="description" content="{desc}">
   <meta name="theme-color" content="#081316">
   <link rel="canonical" href="https://overvue.in{path}">
   {robots}
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Overvue">
-  <meta property="og:title" content="{title} — Overvue">
+  <meta property="og:title" content="{full_title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:url" content="https://overvue.in{path}">
+  <meta property="og:image:alt" content="Overvue personal finance app">
+  <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{full_title}">
+  <meta name="twitter:description" content="{desc}">
   <meta property="og:image" content="https://overvue.in/assets/img/og-image.png">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
@@ -269,7 +274,7 @@ FEATURES = [
     },
     {
         "slug": "lend-borrow-tracker", "nav": "Lend & borrow tracker", "art": "lend",
-        "title": "Money Lent & Borrowed Tracker",
+        "title": "Money Lent & Borrowed Tracker App",
         "desc": "Keep track of money you've lent to friends or borrowed from them. Overvue counts it toward your net worth so nothing slips through.",
         "h1": "Track money you've lent and borrowed, without the awkward reminders",
         "lede": "Lent a friend money for a trip? Borrowed from family? Log it in Overvue and it counts toward your net worth, so you always know who owes whom.",
@@ -286,7 +291,7 @@ FEATURES = [
     },
     {
         "slug": "credit-card-tracker", "nav": "Credit card tracker", "art": "card",
-        "title": "Credit Card Bill & Due Date Tracker",
+        "title": "Credit Card Bill & Due Date Tracker App",
         "desc": "Keep credit cards next to your bank accounts, track card payments and see when each bill is due with Overvue.",
         "h1": "Keep your credit cards and their due dates in view",
         "lede": "Overvue keeps your credit cards right next to your bank accounts, tracks card spending and payments, and shows when each bill is due.",
@@ -430,12 +435,12 @@ FAQ_BODY = "    <h1>Frequently asked questions</h1>\n    <p class=\"meta\">Quick
     '\n    <p style="margin-top:32px">Still stuck? See <a href="/support/">Support</a> or email <a href="mailto:support@overvue.in">support@overvue.in</a>.</p>'
 
 PAGES = [
-    ("privacy-policy/index.html", "/privacy-policy/", "Privacy Policy", "How Overvue handles your information.", doc_main(PRIVACY), True, ""),
-    ("terms-of-service/index.html", "/terms-of-service/", "Terms of Service", "The terms for using Overvue.", doc_main(TERMS), True, ""),
-    ("support/index.html", "/support/", "Support", "Get help with the Overvue app.", doc_main(SUPPORT), True, ""),
-    ("faq/index.html", "/faq/", "FAQ", "Answers to common questions about Overvue: bank connections, net worth, privacy, currencies, sync and account deletion.",
+    ("privacy-policy/index.html", "/privacy-policy/", "Privacy Policy", "How the Overvue personal finance app collects, stores and protects your data. No bank logins, no ads and we never sell your personal information.", doc_main(PRIVACY), True, ""),
+    ("terms-of-service/index.html", "/terms-of-service/", "Terms of Service", "The terms for using the Overvue personal finance app and website, including your account, your content and our disclaimer.", doc_main(TERMS), True, ""),
+    ("support/index.html", "/support/", "Help & Support", "Get help with the Overvue app: contact support, report a bug, request account deletion or find answers to common questions.", doc_main(SUPPORT), True, ""),
+    ("faq/index.html", "/faq/", "Frequently Asked Questions", "Answers to common questions about Overvue: bank connections, net worth, privacy, currencies, sync and account deletion.",
      doc_main(FAQ_BODY), True, faq_ld(GENERAL_FAQ) + crumbs_ld(("Home", "/"), ("FAQ", "/faq/"))),
-    ("features/index.html", "/features/", "Features", "Overvue features: net worth tracker, expense tracker, monthly budget planner, lend and borrow tracker and credit card due dates, in one app.",
+    ("features/index.html", "/features/", "Personal Finance App Features", "Overvue features: net worth tracker, expense tracker, monthly budget planner, lend and borrow tracker and credit card due dates, in one app.",
      hub_main(), True, crumbs_ld(("Home", "/"), ("Features", "/features/"))),
     ("404.html", "/404.html", "Page not found", "Page not found.", doc_main(NOTFOUND), False, ""),
 ]
@@ -449,11 +454,16 @@ for out, path, title, desc, main, indexable, schema in PAGES:
     current = path.strip("/")
     target = ROOT / out
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(SHELL.format(title=title, desc=escape(desc), path=path, robots=robots, main=main, schema=schema,
-                                   nav=nav_html(current), foot_features=FOOT_FEATURES), encoding="utf-8")
+    html = SHELL.format(full_title=escape(f"{title} — Overvue"), desc=escape(desc), path=path, robots=robots, main=main, schema=schema,
+                                   nav=nav_html(current), foot_features=FOOT_FEATURES)
+    target.write_text(html, encoding="utf-8")
     print("wrote", out)
+    # Slashless copy so /support etc. resolve without a redirect; its canonical still points at the slash URL.
+    if out.endswith("/index.html"):
+        (ROOT / (out[:-len("/index.html")] + ".html")).write_text(html, encoding="utf-8")
 
-sitemap = "".join(f"  <url><loc>https://overvue.in{p[1]}</loc></url>\n" for p in PAGES if p[5])
+TODAY = date.today().isoformat()
+sitemap = "".join(f"  <url><loc>https://overvue.in{p[1]}</loc><lastmod>{TODAY}</lastmod></url>\n" for p in PAGES if p[5])
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-                                  "  <url><loc>https://overvue.in/</loc></url>\n" + sitemap + "</urlset>\n", encoding="utf-8")
+                                  f"  <url><loc>https://overvue.in/</loc><lastmod>{TODAY}</lastmod></url>\n" + sitemap + "</urlset>\n", encoding="utf-8")
 print("wrote sitemap.xml")
