@@ -1,13 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120"><circle cx="80" cy="60" r="50" fill="#EBF3F3"/><circle cx="46" cy="60" r="19" fill="#FFFFFF" stroke="#CFDCDD" stroke-width="1.5"/>
-<circle cx="46" cy="55" r="6" fill="#DAE5E6"/>
-<path d="M36 71a10 8 0 0 1 20 0z" fill="#DAE5E6"/>
-<circle cx="114" cy="60" r="19" fill="#FFFFFF" stroke="#CFDCDD" stroke-width="1.5"/>
-<circle cx="114" cy="55" r="6" fill="#DAE5E6"/>
-<path d="M104 71a10 8 0 0 1 20 0z" fill="#DAE5E6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120"><circle cx="80" cy="60" r="49.25" fill="#FFFFFF" stroke="#DFE8E8" stroke-width="1.5"/><g transform="matrix(0.76 0 0 0.76 19.2 14.4)"><circle cx="46" cy="60" r="19" fill="#FFFFFF" stroke="#5B6B6D" stroke-width="2.75" stroke-linejoin="round"/>
+<circle cx="46" cy="54.5" r="5.5" fill="none" stroke="#5B6B6D" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M36.5 72a9.5 8 0 0 1 19 0" fill="none" stroke="#5B6B6D" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="114" cy="60" r="19" fill="#FFFFFF" stroke="#5B6B6D" stroke-width="2.75" stroke-linejoin="round"/>
+<circle cx="114" cy="54.5" r="5.5" fill="none" stroke="#5B6B6D" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M104.5 72a9.5 8 0 0 1 19 0" fill="none" stroke="#5B6B6D" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
 
-<path d="M66 50Q80 40 94 50" fill="none" stroke="#08BDB1" stroke-width="3" stroke-linecap="round"/>
-<path d="M92.2 43.2L94 50L87 50.6" fill="none" stroke="#08BDB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M94 72Q80 82 66 72" fill="none" stroke="#DAE5E6" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/>
-<circle cx="80" cy="62" r="8" fill="#7BF2D3" stroke="#FFFFFF" stroke-width="2"/>
-<circle cx="80" cy="62" r="4" fill="none" stroke="#018287" stroke-width="1.6"/>
-</svg>
+<path d="M66 49Q80 39 94 49" fill="none" stroke="#017C82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M92.2 42.2L94 49L87 49.6" fill="none" stroke="#017C82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M94 73Q80 83 66 73" fill="none" stroke="#C9D6D7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M67.8 79.8L66 73L73 72.4" fill="none" stroke="#C9D6D7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="80" cy="61" r="8" fill="#017C82" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="80" cy="61" r="3.6" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</g></svg>

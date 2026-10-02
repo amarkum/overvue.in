@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120"><circle cx="80" cy="60" r="50" fill="#EBF3F3"/><path d="M62 20 H98 A8 8 0 0 1 106 28 V94 L101.67 89 L97.33 94 L93 89 L88.67 94 L84.33 89 L80 94 L75.67 89 L71.33 94 L67 89 L62.67 94 L58.33 89 L54 94 V28 A8 8 0 0 1 62 20Z" fill="#FFFFFF" stroke="#CFDCDD" stroke-width="1.5" stroke-linejoin="round"/>
-<rect x="63" y="32" width="22" height="4" rx="2" fill="#DAE5E6"/><rect x="63" y="44" width="34" height="3.5" rx="1.75" fill="#DAE5E6"/>
-<rect x="63" y="53" width="28" height="3.5" rx="1.75" fill="#DAE5E6"/><rect x="63" y="62" width="31" height="3.5" rx="1.75" fill="#DAE5E6"/>
-<rect x="63" y="76" width="16" height="5" rx="2.5" fill="#08BDB1"/><rect x="83" y="76" width="14" height="5" rx="2.5" fill="#DAE5E6"/>
-<circle cx="108" cy="28" r="12" fill="#08BDB1"/><path d="M108 22.5v11M102.5 28h11" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120"><circle cx="80" cy="60" r="49.25" fill="#FFFFFF" stroke="#DFE8E8" stroke-width="1.5"/><g transform="matrix(0.76 0 0 0.76 19.2 14.4)"><path d="M62 20 H98 A8 8 0 0 1 106 28 V94 L101.67 89 L97.33 94 L93 89 L88.67 94 L84.33 89 L80 94 L75.67 89 L71.33 94 L67 89 L62.67 94 L58.33 89 L54 94 V28 A8 8 0 0 1 62 20Z" fill="#FFFFFF" stroke="#5B6B6D" stroke-width="2.75" stroke-linejoin="round"/>
+<path d="M63 32h20" fill="none" stroke="#5B6B6D" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M63 44h32" fill="none" stroke="#C9D6D7" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M63 53h26" fill="none" stroke="#C9D6D7" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M63 62h29" fill="none" stroke="#C9D6D7" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M63 77h12" fill="none" stroke="#C9D6D7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M82 77h15" fill="none" stroke="#5B6B6D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="108" cy="28" r="12" fill="#017C82" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/><path d="M108 22.5v11M102.5 28h11" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</g></svg>
