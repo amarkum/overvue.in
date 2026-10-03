@@ -549,7 +549,15 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; color: var(-
 
 /* ---------- Legal / text pages ---------- */
 .doc { padding: 72px 0 96px; }
-.doc .wrap { max-width: 760px; }
+.doc .wrap { max-width: var(--maxw); }
+/* Long-form pages: one text column lined up with the header, with 'On this page' beside it. */
+.doc-grid { --toc-w: 220px; display: grid; grid-template-columns: minmax(0, 1fr) var(--toc-w); gap: 72px; align-items: start; }
+.doc-main { min-width: 0; }
+.doc-toc { position: sticky; top: 96px; }
+.doc-toc p { margin: 4px 0 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-dim); }
+.doc .doc-toc a { display: block; padding: 7px 0 7px 14px; border-left: 2px solid var(--border); color: var(--text-dim); font-size: 14.5px; line-height: 1.4; text-decoration: none; }
+.doc .doc-toc a:hover { color: var(--text); border-left-color: var(--accent); }
+.doc h2[id] { scroll-margin-top: 88px; }
 .doc h1 { font-size: clamp(34px, 5vw, 48px); margin-bottom: 8px; }
 .doc .meta { color: var(--text-dim); font-size: 15px; margin-bottom: 40px; }
 .doc h2 { font-size: 24px; margin: 44px 0 12px; letter-spacing: -0.015em; }
@@ -570,9 +578,11 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; color: var(-
 
 /* ---------- Feature pages ---------- */
 .feat-hero { padding: 64px 0 8px; }
-.feat-hero .wrap { max-width: 760px; }
+.feat-hero .wrap { max-width: var(--maxw); }
+.feat-hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 220px; column-gap: 72px; } /* same columns as .doc-grid */
+.feat-hero .wrap > * { grid-column: 1; max-width: none; }
 .feat-hero h1 { font-size: clamp(32px, 5vw, 48px); letter-spacing: -0.025em; line-height: 1.1; }
-.feat-hero .lede { margin-top: 18px; color: var(--text-soft); font-size: 19px; max-width: none; }
+.feat-hero .lede { margin-top: 18px; color: var(--text-soft); font-size: 19px; }
 .feat-art { display: block; width: 168px; height: 126px; margin: 8px 0 12px -14px; }
 .crumbs { font-size: 14px; color: var(--text-dim); margin-bottom: 20px; }
 .crumbs a:hover { color: var(--text); }
@@ -624,6 +634,10 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; color: var(-
   .foot-grid { grid-template-columns: 1fr; gap: 32px; }
   .foot-stores .store-badge { flex: 0 1 auto; }
   .foot-bottom { flex-direction: column; }
+}
+@media (max-width: 1000px) {
+  .doc-grid, .feat-hero .wrap { grid-template-columns: 1fr; }
+  .doc-toc { display: none; }
 }
 @media (max-width: 480px) {
   /* No room beside the logo, theme toggle and button; the footer lists the feature pages. */

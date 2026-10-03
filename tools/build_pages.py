@@ -4,6 +4,7 @@
 Run from the repo root:  python3 tools/build_pages.py
 index.html is hand-written and not touched here.
 """
+import re
 from datetime import date
 from pathlib import Path
 
@@ -427,6 +428,31 @@ def cta():
   </div>
 </section>"""
 
+def slug(text):
+    return re.sub(r"[^a-z0-9]+", "-", re.sub(r"<[^>]+>", "", text).lower()).strip("-")
+
+def with_toc(inner):
+    """Long-form pages: the text in a column lined up with the header, and an
+    'On this page' list beside it on wide screens."""
+    links = []
+    def anchor(m):
+        title = m.group(1)
+        if title == "Do this in Overvue":
+            return m.group(0)
+        links.append(f'<a href="#{slug(title)}">{title}</a>')
+        return f'<h2 id="{slug(title)}">{title}</h2>'
+    inner = re.sub(r"<h2>(.*?)</h2>", anchor, inner)
+    toc = (f'<aside class="doc-toc"><nav aria-label="On this page"><p>On this page</p>{"".join(links)}</nav></aside>'
+           if len(links) >= 3 else '<aside class="doc-toc" aria-hidden="true"></aside>')
+    return f'  <div class="wrap doc-grid">\n    <div class="doc-main">\n{inner}\n    </div>\n    {toc}\n  </div>'
+
+def doc_layout(main):
+    """Puts every long-form section of a page into the column-and-contents layout."""
+    main = re.sub(r'(<main class="doc">)\n  <div class="wrap">\n(.*?)\n  </div>\n(</main>)',
+                  lambda m: f"{m.group(1)}\n{with_toc(m.group(2))}\n{m.group(3)}", main, flags=re.S)
+    return re.sub(r'(<section class="doc feat-body[^"]*">)\n  <div class="wrap">\n(.*?)\n  </div>\n(</section>)',
+                  lambda m: f"{m.group(1)}\n{with_toc(m.group(2))}\n{m.group(3)}", main, flags=re.S)
+
 def doc_main(body):
     return f'<main class="doc">\n  <div class="wrap">\n{body}\n  </div>\n</main>'
 
@@ -600,7 +626,7 @@ for out, path, title, desc, main, indexable, schema in PAGES:
     current = path.strip("/")
     target = ROOT / out
     target.parent.mkdir(parents=True, exist_ok=True)
-    html = SHELL.format(full_title=escape(f"{title} — Overvue"), desc=escape(desc), path=path, robots=robots, main=main, schema=schema,
+    html = SHELL.format(full_title=escape(f"{title} — Overvue"), desc=escape(desc), path=path, robots=robots, main=doc_layout(main), schema=schema,
                                    nav=nav_html(current), foot_features=FOOT_FEATURES)
     target.write_text(html, encoding="utf-8")
     print("wrote", out)
