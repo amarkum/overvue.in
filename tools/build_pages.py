@@ -343,6 +343,26 @@ FEATURES = [
             ("What happens when an event passes?", "Yearly events move to next year automatically. One-off events move to a Passed list, where you can remove them or set a new date."),
         ],
     },
+    {
+        "slug": "ai-money-assistant", "nav": "AI money assistant", "art": "ai",
+        "title": "AI Money Assistant for Your Finances",
+        "desc": "Overvue AI answers questions about your money and writes short notes on your month, from your own data. Off until you turn it on; chats aren't stored.",
+        "h1": "An AI money assistant that knows your numbers",
+        "lede": "Ask \"Where did my money go this month?\" or \"Can I cover my card bills?\" and get a clear answer worked out from your own accounts, budget and spending.",
+        "sections": [
+            ("Notes on your month", "<p>With Overvue AI on, the Stats tab adds a few short notes on what changed: a category that's climbing, a good savings month, a habit worth a look. Tap one to ask a follow-up.</p>"),
+            ("Ask in plain words", "<p>Type a question or start from a suggested one picked for your month. Answers use your balances, budget, card bills and transactions, and suggest follow-up questions you might want to ask next.</p>"),
+            ("Off until you turn it on", "<p>Overvue AI is opt-in. Before it starts, Overvue shows exactly what the AI sees: amounts, dates, categories, notes and account nicknames, never your email, password or card numbers. Chats aren't stored, and you can switch AI off in Settings at any time.</p>"),
+            ("Free questions every month", "<p>The free plan includes 10 AI questions a month and a fresh set of insights each day. Overvue Pro raises that to 300 questions a month and six insight refreshes a day.</p>"),
+        ],
+        "ticks": ["Short notes on what changed this month", "Answers from your own accounts and budget", "Opt-in, with what it sees spelled out first", "Chats aren't stored", "10 free questions a month"],
+        "faq": [
+            ("Is Overvue AI on by default?", "No. It stays off until you turn it on, and you can turn it off again in Settings."),
+            ("What data does the AI see?", "Your balances, budget and transactions: amounts, dates, categories, notes and account nicknames. Never your email, password or card numbers."),
+            ("Are my AI chats saved?", "No. Overvue's AI service reads your data only while answering, and chats aren't stored."),
+            ("Can the AI give financial advice?", "It explains your own numbers, but it isn't a financial adviser and answers can be wrong, so check anything important before acting on it."),
+        ],
+    },
 ]
 
 GENERAL_FAQ = [
@@ -463,7 +483,7 @@ def hub_main():
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Features</span></nav>
     <h1>Personal finance features, all in one app</h1>
-    <p class="lede">Overvue is a net worth tracker, expense tracker, budget planner and loan tracker in one place, with no bank logins and no ads.</p>
+    <p class="lede">Overvue is a net worth tracker, expense tracker, budget planner, subscription tracker and AI money assistant in one place, with no bank logins and no ads.</p>
   </div>
 </section>
 <section style="padding-top:0">

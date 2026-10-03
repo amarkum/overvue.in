@@ -448,6 +448,18 @@ h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.03
 .minis .card h3 { font-size: 18px; margin-bottom: 6px; }
 .minis .card p { font-size: 15px; }
 
+/* ---------- Overvue AI ---------- */
+.ai-split { grid-template-columns: 1fr 1fr; }
+.ai-phones { display: flex; gap: 24px; justify-content: center; }
+.ai-phones .shot { width: 248px; }
+.ai-phones .shot:last-child { margin-top: 56px; }
+.ai-more a { color: var(--accent); font-weight: 600; }
+@media (max-width: 600px) {
+  .ai-phones { gap: 14px; }
+  .ai-phones .shot { width: 50%; }
+  .ai-phones .shot:last-child { margin-top: 32px; }
+}
+
 /* ---------- Screen gallery ---------- */
 .gallery-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 44px; }
 .gallery-head .sec-head { margin-bottom: 0; }
