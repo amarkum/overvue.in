@@ -34,6 +34,9 @@
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="i-signal" viewBox="0 0 24 24"><path d="M2 17h3v4H2zM7.5 13h3v8h-3zM13 9h3v12h-3zM18.5 4h3v17h-3z"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M12 20.5a1.9 1.9 0 1 0 0-3.8 1.9 1.9 0 0 0 0 3.8zM6.2 14.3a8.2 8.2 0 0 1 11.6 0l-1.7 1.7a5.8 5.8 0 0 0-8.2 0zM2.4 10.5a13.6 13.6 0 0 1 19.2 0l-1.7 1.7a11.2 11.2 0 0 0-15.8 0z"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 36 24"><rect x="1" y="5" width="28" height="14" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".45"/><rect x="3.5" y="7.5" width="23" height="9" rx="2.5"/><path d="M31 9.5v5a2.6 2.6 0 0 0 0-5z" opacity=".45"/></symbol>
 </svg>
 <header class="nav">
   <div class="wrap">
@@ -64,7 +67,7 @@
   <div class="wrap doc-grid">
     <div class="doc-main">
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: 3 October 2026</p>
+    <p class="meta">Last updated: 2 October 2026</p>
 
     <p>Overvue ("we", "us") is a personal finance app that helps you see your net worth, spending and budgets in one place. This policy explains what information the app handles, why, and the choices you have. We have tried to keep it plain and short.</p>
 
@@ -73,8 +76,6 @@
       <li><strong>Account details</strong> — your email address and, if you choose, your name and profile photo. If you sign in with Google or Apple, we receive the basic profile information they share with us (such as your name and email address).</li>
       <li><strong>Financial entries you add</strong> — account names and balances, credit cards, expenses, income, budgets, money lent or borrowed, reminders, notes and to-dos. Overvue is manual-entry: you decide what to add.</li>
       <li><strong>Preferences</strong> — such as your default currency and appearance (dark, light or system).</li>
-      <li><strong>Questions to Overvue AI</strong> — what you ask, if you choose to use Overvue AI.</li>
-      <li><strong>Subscription status</strong> — if you subscribe to Overvue Pro, which plan you bought and whether it is active. Payment is handled by the App Store or Google Play; we never see your card details.</li>
       <li><strong>Messages to support</strong> — anything you send us at support@overvue.in.</li>
     </ul>
 
@@ -89,28 +90,20 @@
     <ul>
       <li>To provide the app — signing you in, storing your entries, and syncing them across your devices.</li>
       <li>To calculate and display your net worth, insights and budget progress.</li>
-      <li>If you turn on Overvue AI, to write insights and answer your questions about your money.</li>
-      <li>To unlock Overvue Pro and check that your subscription is active.</li>
       <li>To respond to support requests and keep the service secure.</li>
     </ul>
 
     <h2 id="where-your-data-is-stored">Where your data is stored</h2>
-    <p>Overvue uses Google Firebase (Firebase Authentication, Cloud Firestore and Cloud Storage) to run the service. Your data is stored under your user account and is protected by access rules so that only you can read and write it. During your first month and with Overvue Pro, your entries are backed up and synced through Cloud Firestore; on the free plan they stay on your device. Google processes this data on our behalf under its own terms and privacy commitments. Data may be processed in countries other than your own.</p>
-
-    <h2 id="overvue-ai">Overvue AI</h2>
-    <p>Overvue AI is optional and stays off until you agree to it. When it is on, the app sends a summary of your entries (such as balances, your budget and recent spending by category) and the questions you ask to our AI service, which uses Google's Gemini API to write the reply. Our AI service does not store your entries or messages, and Google processes them under the Gemini API terms. You can turn Overvue AI off at any time in Settings.</p>
-
-    <h2 id="subscriptions">Subscriptions</h2>
-    <p>Overvue Pro is sold through the App Store and Google Play. We use RevenueCat to keep track of subscriptions: it receives your purchase receipts and your Overvue account ID, but not your name, email or financial entries.</p>
+    <p>Overvue uses Google Firebase (Firebase Authentication, Cloud Firestore and Cloud Storage) to run the service. Your data is stored under your user account and is protected by access rules so that only you can read and write it. Google processes this data on our behalf under its own terms and privacy commitments. Data may be processed in countries other than your own.</p>
 
     <h2 id="permissions">Permissions</h2>
     <p>The app needs internet access to sync. If you choose to set a profile photo, the app asks to access a photo from your library; it only reads the photo you select.</p>
 
     <h2 id="sharing">Sharing</h2>
-    <p>We do not share your personal data with third parties except (a) the service providers that run the app, as described above: Google (Firebase and, if you use Overvue AI, the Gemini API) and RevenueCat, and (b) where required by law or to protect rights and safety.</p>
+    <p>We do not share your personal data with third parties except (a) the service providers that host the app, as described above, and (b) where required by law or to protect rights and safety.</p>
 
     <h2 id="retention-and-deletion">Retention and deletion</h2>
-    <p>We keep your data for as long as your account exists. You can delete your account and all of its data in the app, under Settings &gt; Delete account, or email <a href="mailto:support@overvue.in">support@overvue.in</a> from the address you signed up with and we will process the request. You can also edit or delete individual entries inside the app at any time.</p>
+    <p>We keep your data for as long as your account exists. To delete your account and the data associated with it, email <a href="mailto:support@overvue.in">support@overvue.in</a> from the address you signed up with and we will process the request. You can also edit or delete individual entries inside the app at any time.</p>
 
     <h2 id="security">Security</h2>
     <p>We use industry-standard safeguards, including encrypted connections and per-user access rules. No method of storage or transmission is completely secure, so we cannot guarantee absolute security — please also protect your device and sign-in credentials.</p>
@@ -128,7 +121,7 @@
     <p>Questions about privacy? Email <a href="mailto:support@overvue.in">support@overvue.in</a>.</p>
 
     </div>
-    <aside class="doc-toc"><nav aria-label="On this page"><p>On this page</p><a href="#information-you-give-us">Information you give us</a><a href="#what-we-do-not-collect">What we do not collect</a><a href="#how-we-use-information">How we use information</a><a href="#where-your-data-is-stored">Where your data is stored</a><a href="#overvue-ai">Overvue AI</a><a href="#subscriptions">Subscriptions</a><a href="#permissions">Permissions</a><a href="#sharing">Sharing</a><a href="#retention-and-deletion">Retention and deletion</a><a href="#security">Security</a><a href="#children">Children</a><a href="#your-rights">Your rights</a><a href="#changes-to-this-policy">Changes to this policy</a><a href="#contact">Contact</a></nav></aside>
+    <aside class="doc-toc"><nav aria-label="On this page"><p>On this page</p><a href="#information-you-give-us">Information you give us</a><a href="#what-we-do-not-collect">What we do not collect</a><a href="#how-we-use-information">How we use information</a><a href="#where-your-data-is-stored">Where your data is stored</a><a href="#permissions">Permissions</a><a href="#sharing">Sharing</a><a href="#retention-and-deletion">Retention and deletion</a><a href="#security">Security</a><a href="#children">Children</a><a href="#your-rights">Your rights</a><a href="#changes-to-this-policy">Changes to this policy</a><a href="#contact">Contact</a></nav></aside>
   </div>
 </main>
 <footer>

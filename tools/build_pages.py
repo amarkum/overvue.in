@@ -48,6 +48,9 @@ SHELL = """<!doctype html>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="i-signal" viewBox="0 0 24 24"><path d="M2 17h3v4H2zM7.5 13h3v8h-3zM13 9h3v12h-3zM18.5 4h3v17h-3z"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M12 20.5a1.9 1.9 0 1 0 0-3.8 1.9 1.9 0 0 0 0 3.8zM6.2 14.3a8.2 8.2 0 0 1 11.6 0l-1.7 1.7a5.8 5.8 0 0 0-8.2 0zM2.4 10.5a13.6 13.6 0 0 1 19.2 0l-1.7 1.7a11.2 11.2 0 0 0-15.8 0z"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 36 24"><rect x="1" y="5" width="28" height="14" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".45"/><rect x="3.5" y="7.5" width="23" height="9" rx="2.5"/><path d="M31 9.5v5a2.6 2.6 0 0 0 0-5z" opacity=".45"/></symbol>
 </svg>
 <header class="nav">
   <div class="wrap">
@@ -223,7 +226,7 @@ from html import escape
 # Feature pages: one per search intent. Each gets its own title, description, FAQ (FAQPage schema) and breadcrumb.
 FEATURES = [
     {
-        "slug": "net-worth-tracker", "nav": "Net worth tracker", "art": "welcome",
+        "slug": "net-worth-tracker", "shots": [('home', 'Home', 'Your net worth, split into liquid, invested, lent and debt.'), ('accounts', 'Accounts', 'What you own and owe, account by account.'), ('bank-accounts', 'Bank accounts', 'Every account and its balance, with the total on top.')], "nav": "Net worth tracker", "art": "welcome",
         "title": "Net Worth Tracker App",
         "desc": "Track your net worth in one place. Overvue adds up your bank balances and money lent, subtracts card debt and loans, and shows the trend over time.",
         "h1": "A net worth tracker that gives you one number you can trust",
@@ -241,7 +244,7 @@ FEATURES = [
         ],
     },
     {
-        "slug": "expense-tracker", "nav": "Expense tracker", "art": "spending",
+        "slug": "expense-tracker", "shots": [('add', 'Add an expense', 'Type the amount, tap a category, done.'), ('activity', 'Activity', "Every entry, grouped by day with the day's total."), ('stats-breakdown', 'Breakdown', 'Spending by category, against last month.')], "nav": "Expense tracker", "art": "spending",
         "title": "Expense Tracker App",
         "desc": "Log expenses and income in a couple of taps, see spending by category, compare with last month and track your savings rate with Overvue.",
         "h1": "An expense tracker that explains where your money went",
@@ -260,7 +263,7 @@ FEATURES = [
         ],
     },
     {
-        "slug": "budget-planner", "nav": "Budget planner", "art": "budget",
+        "slug": "budget-planner", "shots": [('budget', 'Budget', "What's left, a daily allowance and a month-end forecast."), ('set-budget', 'Set a budget', 'One monthly limit across all categories.'), ('months', 'Any month', 'Jump to any month or year.')], "nav": "Budget planner", "art": "budget",
         "title": "Monthly Budget Planner App",
         "desc": "Set one monthly budget, see what's left to spend per day and get a month-end forecast so overspending never sneaks up on you.",
         "h1": "A monthly budget planner that warns you early",
@@ -277,7 +280,7 @@ FEATURES = [
         ],
     },
     {
-        "slug": "lend-borrow-tracker", "nav": "Lend & borrow tracker", "art": "lend",
+        "slug": "lend-borrow-tracker", "shots": [('lend-borrow', 'Lend & borrow', 'Money lent out and borrowed, next to your accounts.'), ('home', 'Home', "Money you've lent counts toward your net worth.")], "nav": "Lend & borrow tracker", "art": "lend",
         "title": "Money Lent & Borrowed Tracker App",
         "desc": "Keep track of money you've lent to friends or borrowed from them. Overvue counts it toward your net worth so nothing slips through.",
         "h1": "Track money you've lent and borrowed, without the awkward reminders",
@@ -294,7 +297,7 @@ FEATURES = [
         ],
     },
     {
-        "slug": "credit-card-tracker", "nav": "Credit card tracker", "art": "card",
+        "slug": "credit-card-tracker", "shots": [('credit-cards', 'Credit cards', "What you owe on each card and when it's due."), ('accounts', 'Accounts', 'Card balances counted as debt, beside your banks.')], "nav": "Credit card tracker", "art": "card",
         "title": "Credit Card Bill & Due Date Tracker App",
         "desc": "Keep credit cards next to your bank accounts, track card payments and see when each bill is due with Overvue.",
         "h1": "Keep your credit cards and their due dates in view",
@@ -311,7 +314,7 @@ FEATURES = [
         ],
     },
     {
-        "slug": "subscription-tracker", "nav": "Subscription tracker", "art": "bell",
+        "slug": "subscription-tracker", "shots": [('subscriptions', 'Subscriptions', 'Monthly and yearly cost, and what renews next.'), ('add-subscription', 'Add a subscription', 'Pick a service, set the price and a reminder.')], "nav": "Subscription tracker", "art": "bell",
         "title": "Subscription Tracker App",
         "desc": "Track every subscription in one place: see your monthly and yearly cost, what renews in the next 30 days, and get a reminder before each charge.",
         "h1": "A subscription tracker that tells you before you're charged",
@@ -328,7 +331,7 @@ FEATURES = [
         ],
     },
     {
-        "slug": "event-countdown", "nav": "Event countdown", "art": "calendar",
+        "slug": "event-countdown", "shots": [('events', 'Events', 'Count down to trips, birthdays and due dates.'), ('add-event', 'Add an event', 'Birthdays, trips, loan ends and more, yearly if you like.')], "nav": "Event countdown", "art": "calendar",
         "title": "Event Countdown App for Trips & Birthdays",
         "desc": "Count down to trips, birthdays, loan end dates and tax deadlines in Overvue. Yearly events roll over on their own, so you never miss one.",
         "h1": "Count down to the dates that matter to your money",
@@ -345,7 +348,7 @@ FEATURES = [
         ],
     },
     {
-        "slug": "ai-money-assistant", "nav": "AI money assistant", "art": "ai",
+        "slug": "ai-money-assistant", "shots": [('ai-consent', 'Turn it on', 'Off until you say so, with what it sees spelled out.'), ('ai-insights', 'Notes on your month', 'Short notes on what changed, on the Stats tab.'), ('ai-chat', 'Ask anything', 'Answers worked out from your own accounts and budget.')], "nav": "AI money assistant", "art": "ai",
         "title": "AI Money Assistant for Your Finances",
         "desc": "Overvue AI answers questions about your money and writes short notes on your month, from your own data. Off until you turn it on; chats aren't stored.",
         "h1": "An AI money assistant that knows your numbers",
@@ -463,6 +466,19 @@ def guide_links(f):
     items = "\n".join(f'        <li><a href="/guides/{g["slug"]}/">{escape(g["h1"])}</a></li>' for g in mine)
     return f"      <h2>Guides</h2>\n      <ul>\n{items}\n      </ul>"
 
+def phone(name, alt, title=None, caption=None):
+    """A real app screen in a phone frame; the light or dark render follows the site theme."""
+    chrome = ('<div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg>'
+              '<svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>')
+    imgs = "".join(f'<img class="art-{t}" src="/assets/shots/in/{name}-{t}.webp" alt="{escape(alt)}" width="540" height="1171" loading="lazy" decoding="async">'
+                   for t in ("dark", "light"))
+    cap = f"<figcaption><b>{escape(title)}</b><span>{escape(caption)}</span></figcaption>" if title else ""
+    return f'<figure class="shot"><div class="shot-frame"><div class="shot-screen">{imgs}{chrome}</div></div>{cap}</figure>'
+
+def page_shots(f):
+    phones = "\n".join(f"        {phone(n, f'Overvue {t} screen: {c}', t, c)}" for n, t, c in f["shots"])
+    return f'      <h2>See it in the app</h2>\n      <div class="page-shots">\n{phones}\n      </div>'
+
 def feature_main(f):
     secs = "\n".join(f"      <h2>{escape(h)}</h2>\n      {b}" for h, b in f["sections"])
     ticks = "\n".join(f"        <li>{escape(t)}</li>" for t in f["ticks"])
@@ -480,6 +496,7 @@ def feature_main(f):
 </section>
 <section class="doc feat-body">
   <div class="wrap">
+{page_shots(f)}
 {secs}
       <ul class="ticks">
 {ticks}
@@ -550,7 +567,7 @@ def guide_main(g):
   <div class="wrap">
 {g["body"].strip()}
     <aside class="guide-cta">
-      {art(f["art"], "feat-art")}
+      {phone(f["shots"][0][0], f"Overvue {f['shots'][0][1]} screen")}
       <div><h2>Do this in Overvue</h2><p>{escape(f["lede"])}</p><p><a href="/{f["slug"]}/">See the {escape(f["nav"].lower())}</a></p></div>
     </aside>
     <p class="note">This guide is general information, not financial advice. Your situation may differ, so check the details that apply to you.</p>
@@ -664,7 +681,9 @@ def url(path, rel, images=""):
 
 def page_images(main):
     arts = list(dict.fromkeys(re.findall(r'/assets/illustrations/([a-z]+)-dark\.svg', main)))
-    return "".join(f"    <image:image><image:loc>https://overvue.in/assets/illustrations/{a}-dark.svg</image:loc></image:image>\n" for a in arts[:1])
+    shots = list(dict.fromkeys(re.findall(r'/assets/shots/in/([a-z0-9-]+)-dark\.webp', main)))
+    return "".join(f"    <image:image><image:loc>https://overvue.in/assets/illustrations/{a}-dark.svg</image:loc></image:image>\n" for a in arts[:1]) + \
+        "".join(f"    <image:image><image:loc>https://overvue.in/assets/shots/in/{n}-dark.webp</image:loc></image:image>\n" for n in shots)
 
 entries = url("/", "index.html", home_images) + "".join(
     url(p[1], p[0], page_images(p[4])) for p in PAGES if p[5])

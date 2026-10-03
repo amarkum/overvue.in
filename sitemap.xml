@@ -84,41 +84,61 @@
     <loc>https://overvue.in/net-worth-tracker/</loc>
     <lastmod>2026-10-03</lastmod>
     <image:image><image:loc>https://overvue.in/assets/illustrations/welcome-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/home-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/accounts-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/bank-accounts-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/expense-tracker/</loc>
     <lastmod>2026-10-03</lastmod>
     <image:image><image:loc>https://overvue.in/assets/illustrations/spending-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/add-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/activity-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/stats-breakdown-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/budget-planner/</loc>
     <lastmod>2026-10-03</lastmod>
     <image:image><image:loc>https://overvue.in/assets/illustrations/budget-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/budget-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/set-budget-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/months-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/lend-borrow-tracker/</loc>
     <lastmod>2026-10-03</lastmod>
     <image:image><image:loc>https://overvue.in/assets/illustrations/lend-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/lend-borrow-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/home-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/credit-card-tracker/</loc>
     <lastmod>2026-10-03</lastmod>
     <image:image><image:loc>https://overvue.in/assets/illustrations/card-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/credit-cards-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/accounts-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/subscription-tracker/</loc>
     <lastmod>2026-10-03</lastmod>
     <image:image><image:loc>https://overvue.in/assets/illustrations/bell-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/subscriptions-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/add-subscription-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/event-countdown/</loc>
     <lastmod>2026-10-03</lastmod>
     <image:image><image:loc>https://overvue.in/assets/illustrations/calendar-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/events-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/add-event-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/ai-money-assistant/</loc>
     <lastmod>2026-10-03</lastmod>
     <image:image><image:loc>https://overvue.in/assets/illustrations/ai-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/ai-consent-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/ai-insights-dark.webp</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/ai-chat-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/guides/</loc>
@@ -127,51 +147,51 @@
   <url>
     <loc>https://overvue.in/guides/how-to-calculate-net-worth/</loc>
     <lastmod>2026-10-03</lastmod>
-    <image:image><image:loc>https://overvue.in/assets/illustrations/welcome-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/home-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/guides/how-to-make-a-monthly-budget/</loc>
     <lastmod>2026-10-03</lastmod>
-    <image:image><image:loc>https://overvue.in/assets/illustrations/budget-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/budget-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/guides/50-30-20-budget-rule/</loc>
     <lastmod>2026-10-03</lastmod>
-    <image:image><image:loc>https://overvue.in/assets/illustrations/budget-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/budget-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/guides/how-to-track-expenses/</loc>
     <lastmod>2026-10-03</lastmod>
-    <image:image><image:loc>https://overvue.in/assets/illustrations/spending-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/add-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/guides/what-is-a-good-savings-rate/</loc>
     <lastmod>2026-10-03</lastmod>
-    <image:image><image:loc>https://overvue.in/assets/illustrations/spending-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/add-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/guides/keep-track-of-money-lent-to-friends/</loc>
     <lastmod>2026-10-03</lastmod>
-    <image:image><image:loc>https://overvue.in/assets/illustrations/lend-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/lend-borrow-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/guides/find-and-cancel-unused-subscriptions/</loc>
     <lastmod>2026-10-03</lastmod>
-    <image:image><image:loc>https://overvue.in/assets/illustrations/bell-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/subscriptions-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/guides/credit-card-statement-date-vs-due-date/</loc>
     <lastmod>2026-10-03</lastmod>
-    <image:image><image:loc>https://overvue.in/assets/illustrations/card-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/credit-cards-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/guides/how-big-should-an-emergency-fund-be/</loc>
     <lastmod>2026-10-03</lastmod>
-    <image:image><image:loc>https://overvue.in/assets/illustrations/welcome-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/home-dark.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://overvue.in/guides/sinking-funds/</loc>
     <lastmod>2026-10-03</lastmod>
-    <image:image><image:loc>https://overvue.in/assets/illustrations/calendar-dark.svg</image:loc></image:image>
+    <image:image><image:loc>https://overvue.in/assets/shots/in/events-dark.webp</image:loc></image:image>
   </url>
 </urlset>

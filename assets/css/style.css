@@ -490,10 +490,11 @@ h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.03
 }
 .gallery::-webkit-scrollbar { display: none; }
 .gallery:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 16px; }
-.shot { flex: 0 0 auto; width: 248px; margin: 0; scroll-snap-align: start; }
-.shot-frame { padding: 7px; border-radius: 40px; background: #0b0b0d; box-shadow: 0 0 0 2px var(--frame), 0 0 0 3px var(--frame-edge), var(--shadow-shot); }
+.shot { flex: 0 0 auto; width: 248px; margin: 0; scroll-snap-align: start; container-type: inline-size; }
+/* Bezel, corners and outline scale with the phone's width (designed at 248px: 7px bezel, 40px corners), so small phones keep the same shape. */
+.shot-frame { padding: 2.82cqw; border-radius: 16.13cqw; background: #0b0b0d; box-shadow: 0 0 0 max(1px, .81cqw) var(--frame), 0 0 0 max(1.5px, 1.21cqw) var(--frame-edge), var(--shadow-shot); }
 /* the renders are 393 x 852 pt screens; the status bar and home indicator are sized in the same points */
-.shot-screen { position: relative; overflow: hidden; aspect-ratio: 393 / 852; border-radius: 33px; background: #081316; container-type: inline-size; }
+.shot-screen { position: relative; overflow: hidden; aspect-ratio: 393 / 852; border-radius: 13.31cqw; background: #081316; container-type: inline-size; }
 :root[data-theme="light"] .shot-screen { background: #f2f6f6; }
 .shot-screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .shot-chrome {
@@ -596,6 +597,13 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; color: var(-
 .faq-item[open] summary::after { content: "\2212"; }
 .faq-item p { margin: 10px 0 0; }
 
+/* App screens on feature pages and guides */
+.page-shots { display: flex; gap: 24px; margin: 12px 0 8px; padding-bottom: 8px; }
+.page-shots .shot { width: 220px; }
+.page-shots .shot figcaption b { font-size: 15.5px; }
+.page-shots .shot figcaption span { font-size: 14px; }
+.guide-cta .shot { flex-shrink: 0; width: 132px; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .hero { padding: 56px 0 48px; }
@@ -644,6 +652,13 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; color: var(-
   .shot-tabs { flex-wrap: nowrap; overflow-x: auto; margin: -8px -24px 24px; padding: 2px 24px; scroll-padding: 0 24px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .shot-tabs::-webkit-scrollbar { display: none; }
   .shot-tab { flex: 0 0 auto; padding: 7px 14px; font-size: 14px; white-space: nowrap; }
+}
+@media (max-width: 600px) {
+  /* Screens swipe sideways, running to the screen edges. */
+  .page-shots { overflow-x: auto; margin: 12px -24px 8px; padding: 0 24px 8px; gap: 16px; scroll-snap-type: x mandatory; scroll-padding: 0 24px; scrollbar-width: none; }
+  .page-shots::-webkit-scrollbar { display: none; }
+  .page-shots .shot { width: min(200px, 60vw); scroll-snap-align: start; }
+  .guide-cta .shot { width: 120px; }
 }
 @media (max-width: 480px) {
   /* No room beside the logo, theme toggle and button; the footer lists the feature pages. */
