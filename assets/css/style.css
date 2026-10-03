@@ -463,7 +463,7 @@ h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.03
 /* ---------- Screen gallery ---------- */
 .gallery-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 44px; }
 .gallery-head .sec-head { margin-bottom: 0; }
-.shot-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: -16px 0 32px; }
+.shot-tabs { position: relative; display: flex; flex-wrap: wrap; gap: 8px; margin: -16px 0 32px; }
 .shot-tabs[hidden] { display: none; }
 .shot-tab { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); font: inherit; font-size: 14.5px; font-weight: 600; cursor: pointer; transition: border-color .15s ease, color .15s ease, background .15s ease; }
 .shot-tab:hover { color: var(--text); border-color: var(--border-strong); }
@@ -638,6 +638,12 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 40px; color: var(-
 @media (max-width: 1000px) {
   .doc-grid, .feat-hero .wrap { grid-template-columns: 1fr; }
   .doc-toc { display: none; }
+}
+@media (max-width: 600px) {
+  /* One row of tabs that swipes sideways, running to the screen edges, instead of three rows of pills. */
+  .shot-tabs { flex-wrap: nowrap; overflow-x: auto; margin: -8px -24px 24px; padding: 2px 24px; scroll-padding: 0 24px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .shot-tabs::-webkit-scrollbar { display: none; }
+  .shot-tab { flex: 0 0 auto; padding: 7px 14px; font-size: 14px; white-space: nowrap; }
 }
 @media (max-width: 480px) {
   /* No room beside the logo, theme toggle and button; the footer lists the feature pages. */

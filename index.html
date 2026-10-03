@@ -887,14 +887,20 @@
     g.scrollLeft = 0;
     if (prev && next) ends(); // set up below; still undefined on the first call
   }
+  // On phones the tabs are one sideways-scrolling row: bring the picked one to the middle.
+  function reveal(tab) {
+    var row = tab.parentNode;
+    if (row.scrollWidth <= row.clientWidth) return;
+    row.scrollTo({ left: tab.offsetLeft - (row.clientWidth - tab.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+  }
   if (tabs.length) {
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { show(t); });
+      t.addEventListener('click', function () { show(t); reveal(t); });
       t.addEventListener('keydown', function (e) {
         var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
         if (!d) return;
         var n = tabs[(i + d + tabs.length) % tabs.length];
-        n.focus(); show(n);
+        n.focus(); show(n); reveal(n);
       });
     });
     tabs[0].parentNode.hidden = false;
