@@ -3,18 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Overvue — How much money do you actually have right now?</title>
-  <meta name="description" content="Overvue is a personal finance app that shows your real net worth in one place — banks, cards, spending, budgets, and money lent or borrowed.">
+  <title>Overvue — Net Worth Tracker &amp; Personal Finance App</title>
+  <meta name="description" content="Track your net worth, expenses, monthly budget, credit cards and money lent or borrowed in one private app for iPhone and Android. No bank logins, no ads.">
   <meta name="theme-color" content="#081316">
   <link rel="canonical" href="https://overvue.in/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Overvue">
-  <meta property="og:title" content="Overvue — How much money do you actually have right now?">
-  <meta property="og:description" content="One place for your banks, cards, spending, budgets and net worth.">
+  <meta property="og:title" content="Overvue — Net Worth Tracker &amp; Personal Finance App">
+  <meta property="og:description" content="Track your net worth, expenses, monthly budget, credit cards and money lent or borrowed in one private app for iPhone and Android. No bank logins, no ads.">
   <meta property="og:url" content="https://overvue.in/">
   <meta property="og:image" content="https://overvue.in/assets/img/og-image.png">
+  <meta property="og:image:alt" content="Overvue personal finance app">
+  <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Overvue — Net Worth Tracker &amp; Personal Finance App">
+  <meta name="twitter:description" content="Track your net worth, expenses, monthly budget, credit cards and money lent or borrowed in one private app for iPhone and Android. No bank logins, no ads.">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
@@ -24,18 +28,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>(function(){try{var t=localStorage.getItem('overvue-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&icon_names=account_balance,account_balance_wallet,arrow_upward,bar_chart,check_circle,chevron_right,credit_card,directions_car,home,info,keyboard_arrow_down,local_cafe,north_east,payments,receipt_long,shopping_bag,shopping_cart,show_chart,south_west,visibility&display=block" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MobileApplication",
-    "name": "Overvue",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "iOS, Android",
-    "description": "A personal finance app that answers one question: how much money do you actually have right now?",
-    "url": "https://overvue.in/"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://overvue.in/#org",
+        "name": "Overvue",
+        "url": "https://overvue.in/",
+        "logo": "https://overvue.in/assets/img/apple-touch-icon.png",
+        "email": "support@overvue.in"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://overvue.in/#website",
+        "name": "Overvue",
+        "url": "https://overvue.in/",
+        "publisher": { "@id": "https://overvue.in/#org" }
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "Overvue",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "iOS, Android",
+        "description": "A personal finance app that tracks your net worth, expenses, monthly budget, credit cards and money lent or borrowed in one place.",
+        "url": "https://overvue.in/",
+        "image": "https://overvue.in/assets/img/og-image.png",
+        "publisher": { "@id": "https://overvue.in/#org" }
+      }
+    ]
   }
   </script>
 </head>
@@ -54,6 +78,26 @@
   <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/><path d="M21 9v6h-6a3 3 0 0 1 0-6z"/></symbol>
   <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></symbol>
   <symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 20v-8M12 20V4M19 20v-7"/></symbol>
+  <!-- Lucide icons (ISC licence), the set the app uses -->
+  <symbol id="l-arrow-down-left" viewBox="0 0 24 24"><path d="M17 7 7 17"/><path d="M17 17H7V7"/></symbol>
+  <symbol id="l-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+  <symbol id="l-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="l-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+  <symbol id="l-chart-column" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+  <symbol id="l-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="l-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="l-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></symbol>
+  <symbol id="l-coffee" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></symbol>
+  <symbol id="l-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/><path d="M6 14h2"/></symbol>
+  <symbol id="l-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="l-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="l-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="l-landmark" viewBox="0 0 24 24"><path d="M10 18v-7"/><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/></symbol>
+  <symbol id="l-receipt-text" viewBox="0 0 24 24"><path d="M13 16H8"/><path d="M14 8H8"/><path d="M16 12H8"/><path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="l-shopping-bag" viewBox="0 0 24 24"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></symbol>
+  <symbol id="l-shopping-cart" viewBox="0 0 24 24"><path d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18"/><path d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></symbol>
+  <symbol id="l-trending-up" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></symbol>
+  <symbol id="l-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
 </svg>
 
@@ -69,6 +113,8 @@
           <a href="/budget-planner/">Budget planner</a>
           <a href="/lend-borrow-tracker/">Lend &amp; borrow tracker</a>
           <a href="/credit-card-tracker/">Credit card tracker</a>
+          <a href="/subscription-tracker/">Subscription tracker</a>
+          <a href="/event-countdown/">Event countdown</a>
           <a href="/features/" class="all">All features</a>
         </div>
       </div>
@@ -123,9 +169,9 @@
                   <div class="avatar" data-initial>AS</div>
                 </div>
                 <div class="sc r24 mt20">
-                  <div class="lbl">Net worth <span class="ms info" aria-hidden="true">info</span></div>
+                  <div class="lbl">Net worth <svg class="ms info" aria-hidden="true"><use href="#l-info"/></svg></div>
                   <div class="amt38 mt6"><span data-inr="348650">₹3,48,650</span></div>
-                  <div class="mt10"><span class="pill pos"><span class="ms" aria-hidden="true">arrow_upward</span><span><span data-inr="12400" data-compact>₹12,400</span> (3.7%) this month</span></span></div>
+                  <div class="mt10"><span class="pill pos"><svg class="ms" aria-hidden="true"><use href="#l-arrow-up"/></svg><span><span data-inr="12400" data-compact>₹12,400</span> (3.7%) this month</span></span></div>
                   <div class="nwbar mt20"><i style="flex:264200;background:#08bdb1"></i><i style="flex:120000;background:#7bf2d3"></i><i style="flex:45000;background:#017c82"></i><i style="flex:80550;background:#ef4444"></i></div>
                   <div class="legend mt16">
                     <div><i style="background:#08bdb1"></i><span>Liquid</span><b><span data-inr="264200" data-compact>₹2.6L</span></b></div>
@@ -135,7 +181,7 @@
                   </div>
                 </div>
                 <div class="sc r24 mt16">
-                  <div class="ctitle"><span class="tm grow"><span data-month>October</span> budget</span><span class="view">View<span class="ms" aria-hidden="true">chevron_right</span></span></div>
+                  <div class="ctitle"><span class="tm grow"><span data-month>October</span> budget</span><span class="view">View<svg class="ms" aria-hidden="true"><use href="#l-chevron-right"/></svg></span></div>
                   <div class="snap mt16">
                     <div class="ring"><svg viewBox="0 0 96 96" aria-hidden="true"><circle class="track" cx="48" cy="48" r="43"/><circle class="fill" cx="48" cy="48" r="43" stroke-dasharray="175.6 270.2"/></svg><div class="c"><b>65%</b><small>used</small></div></div>
                     <div class="grow">
@@ -167,25 +213,25 @@
                 <div class="sc r24 mt16">
                   <div class="ctitle">
                     <div class="grow"><div class="tm">Spending forecast</div><div class="sub13 mt3">At your current daily pace</div></div>
-                    <span class="mchip"><span data-month>October</span><span class="ms" aria-hidden="true">keyboard_arrow_down</span></span>
+                    <span class="mchip"><span data-month>October</span><svg class="ms" aria-hidden="true"><use href="#l-chevron-down"/></svg></span>
                   </div>
                   <div class="amt28 pos mt20"><span data-inr="47976">₹47,976</span></div>
                   <div class="sub13 mt4">Projected month-end spend</div>
                   <div class="mt20"><svg class="chart" viewBox="0 0 313 200" aria-hidden="true"><line class="gl" x1="40" y1="176.0" x2="305" y2="176.0"/><text class="ax" x="32" y="180.0" text-anchor="end" data-inr="0" data-short>₹0</text><line class="gl" x1="40" y1="120.7" x2="305" y2="120.7"/><text class="ax" x="32" y="124.7" text-anchor="end" data-inr="20000" data-short>₹20K</text><line class="gl" x1="40" y1="65.3" x2="305" y2="65.3"/><text class="ax" x="32" y="69.3" text-anchor="end" data-inr="40000" data-short>₹40K</text><line class="gl" x1="40" y1="10.0" x2="305" y2="10.0"/><text class="ax" x="32" y="14.0" text-anchor="end" data-inr="60000" data-short>₹60K</text><path class="area" d="M40.0,172.7 L57.7,165.2 L75.3,159.1 L93.0,148.9 L110.7,141.7 L128.3,132.0 L146.0,122.6 L163.7,114.9 L181.3,104.6 L199.0,94.7 L216.7,86.1 L305.0,43.3 L305.0,176.0 L40.0,176.0 Z" fill="#08bdb1"/><line class="today" x1="216.7" y1="10" x2="216.7" y2="176"/><line x1="40" y1="37.7" x2="305" y2="37.7" class="bline" stroke-width="1.5" stroke-dasharray="6 4"/><text class="blabel" x="44" y="31.7">Budget <tspan data-inr="50000" data-short>₹50K</tspan></text><polyline points="40.0,172.7 57.7,165.2 75.3,159.1 93.0,148.9 110.7,141.7 128.3,132.0 146.0,122.6 163.7,114.9 181.3,104.6 199.0,94.7 216.7,86.1" fill="none" stroke="#08bdb1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="216.7" y1="86.1" x2="305.0" y2="43.3" stroke="#08bdb1" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/><circle class="dot" cx="216.7" cy="86.1" r="4" stroke="#08bdb1"/><circle class="dot" cx="305.0" cy="43.3" r="4" stroke="#08bdb1"/><text class="tlabel" x="216.7" y="6" text-anchor="middle">Today</text><text class="ax" x="40.0" y="196" text-anchor="start" data-day="1">1 Oct</text><text class="ax" x="101.8" y="196" text-anchor="middle" data-day="8">8 Oct</text><text class="ax" x="163.7" y="196" text-anchor="middle" data-day="15">15 Oct</text><text class="ax" x="225.5" y="196" text-anchor="middle" data-day="22">22 Oct</text><text class="ax" x="305.0" y="196" text-anchor="end" data-day="last">31 Oct</text></svg></div>
                   <div class="mt14"><div class="clegend"><span><svg width="18" height="2" aria-hidden="true"><line x1="0" y1="1" x2="18" y2="1" stroke="#08bdb1" stroke-width="2"/></svg>Spent</span><span><svg width="18" height="2" aria-hidden="true"><line x1="0" y1="1" x2="18" y2="1" stroke="#08bdb1" stroke-width="2" stroke-dasharray="4 3"/></svg>Projected</span></div></div>
                   <div class="banner mt16">
-                    <span class="bi"><span class="ms" aria-hidden="true">check_circle</span></span>
+                    <span class="bi"><svg class="ms" aria-hidden="true"><use href="#l-circle-check"/></svg></span>
                     <div class="grow"><b>On track to stay under budget</b><small>At this pace you'll have <span data-inr="2024">₹2,024</span> left at month-end.</small></div>
                   </div>
                 </div>
               </div>
               <!-- Accounts: net worth summary, categories, lend & borrow -->
               <div class="pane" id="pane-accounts" role="tabpanel" aria-labelledby="tab-accounts" hidden>
-                <div class="ph"><div class="grow"><h5>Accounts</h5><p>Everything you own and owe</p></div><span class="hbtns"><span class="hbtn"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M7 13h12M13 7v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><span class="hbtn"><span class="ms" aria-hidden="true">visibility</span></span></span></div>
+                <div class="ph"><div class="grow"><h5>Accounts</h5><p>Everything you own and owe</p></div><span class="hbtns"><span class="hbtn"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M7 13h12M13 7v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><span class="hbtn"><svg class="ms" aria-hidden="true"><use href="#l-eye"/></svg></span></span></div>
                 <div class="sc r24 mt20">
                   <div class="lbl">Net worth</div>
                   <div class="amt34 mt6"><span data-inr="348650">₹3,48,650</span></div>
-                  <div class="mt10"><span class="pill pos"><span class="ms" aria-hidden="true">arrow_upward</span><span><span data-inr="12400" data-compact>₹12,400</span> this month</span></span></div>
+                  <div class="mt10"><span class="pill pos"><svg class="ms" aria-hidden="true"><use href="#l-arrow-up"/></svg><span><span data-inr="12400" data-compact>₹12,400</span> this month</span></span></div>
                   <div class="hr mt18"></div>
                   <div class="figs mt14">
                     <div class="fig f15"><small>Assets</small><b><span data-inr="429200">₹4,29,200</span></b></div>
@@ -194,15 +240,15 @@
                 </div>
                 <div class="sh mt28">Your accounts</div>
                 <div class="sc flush mt12">
-                  <div class="orow"><span class="badge"><span class="ms" aria-hidden="true">payments</span></span><div class="tx"><b>Cash</b><small>1 account</small></div><span class="val"><span data-inr="12200">₹12,200</span></span><span class="ms chev" aria-hidden="true">chevron_right</span></div>
-                  <div class="orow"><span class="badge"><span class="ms" aria-hidden="true">account_balance</span></span><div class="tx"><b>Bank accounts</b><small>3 accounts</small></div><span class="val"><span data-inr="252000">₹2,52,000</span></span><span class="ms chev" aria-hidden="true">chevron_right</span></div>
-                  <div class="orow"><span class="badge"><span class="ms" aria-hidden="true">credit_card</span></span><div class="tx"><b>Credit cards</b><small>2 cards</small></div><span class="val neg"><span data-inr="-80550">-₹80,550</span></span><span class="ms chev" aria-hidden="true">chevron_right</span></div>
-                  <div class="orow"><span class="badge"><span class="ms" aria-hidden="true">show_chart</span></span><div class="tx"><b>Investments</b><small>2 holdings</small></div><span class="val"><span data-inr="120000">₹1,20,000</span></span><span class="ms chev" aria-hidden="true">chevron_right</span></div>
+                  <div class="orow"><span class="badge"><svg class="ms" aria-hidden="true"><use href="#l-wallet"/></svg></span><div class="tx"><b>Cash</b><small>1 account</small></div><span class="val"><span data-inr="12200">₹12,200</span></span><svg class="ms chev" aria-hidden="true"><use href="#l-chevron-right"/></svg></div>
+                  <div class="orow"><span class="badge"><svg class="ms" aria-hidden="true"><use href="#l-landmark"/></svg></span><div class="tx"><b>Bank accounts</b><small>3 accounts</small></div><span class="val"><span data-inr="252000">₹2,52,000</span></span><svg class="ms chev" aria-hidden="true"><use href="#l-chevron-right"/></svg></div>
+                  <div class="orow"><span class="badge"><svg class="ms" aria-hidden="true"><use href="#l-credit-card"/></svg></span><div class="tx"><b>Credit cards</b><small>2 cards</small></div><span class="val neg"><span data-inr="-80550">-₹80,550</span></span><svg class="ms chev" aria-hidden="true"><use href="#l-chevron-right"/></svg></div>
+                  <div class="orow"><span class="badge"><svg class="ms" aria-hidden="true"><use href="#l-trending-up"/></svg></span><div class="tx"><b>Investments</b><small>2 holdings</small></div><span class="val"><span data-inr="120000">₹1,20,000</span></span><svg class="ms chev" aria-hidden="true"><use href="#l-chevron-right"/></svg></div>
                 </div>
                 <div class="sh mt28">Lend &amp; borrow</div>
                 <div class="sc flush mt12">
-                  <div class="orow"><span class="badge"><span class="ms" aria-hidden="true">north_east</span></span><div class="tx"><b>Lent out</b><small>1 person</small></div><span class="val"><span data-inr="45000">₹45,000</span></span><span class="ms chev" aria-hidden="true">chevron_right</span></div>
-                  <div class="orow"><span class="badge"><span class="ms" aria-hidden="true">south_west</span></span><div class="tx"><b>Borrowed</b><small>Money you owe others</small></div><span class="val dim"><span data-inr="0">₹0</span></span><span class="ms chev" aria-hidden="true">chevron_right</span></div>
+                  <div class="orow"><span class="badge"><svg class="ms" aria-hidden="true"><use href="#l-arrow-up-right"/></svg></span><div class="tx"><b>Lent out</b><small>1 person</small></div><span class="val"><span data-inr="45000">₹45,000</span></span><svg class="ms chev" aria-hidden="true"><use href="#l-chevron-right"/></svg></div>
+                  <div class="orow"><span class="badge"><svg class="ms" aria-hidden="true"><use href="#l-arrow-down-left"/></svg></span><div class="tx"><b>Borrowed</b><small>Money you owe others</small></div><span class="val dim"><span data-inr="0">₹0</span></span><svg class="ms chev" aria-hidden="true"><use href="#l-chevron-right"/></svg></div>
                 </div>
               </div>
               <!-- Stats: summary, breakdown -->
@@ -222,11 +268,11 @@
                 <div class="seg mt12"><span class="on">Expenses</span><span>Income</span></div>
                 <div class="sc r24 mt16">
                   <div class="donut"><svg viewBox="0 0 180 180" aria-hidden="true"><circle cx="90" cy="90" r="77" stroke="#08bdb1" stroke-dasharray="134.95 483.81" stroke-dashoffset="0.00"/><circle cx="90" cy="90" r="77" stroke="#7bf2d3" stroke-dasharray="130.49 483.81" stroke-dashoffset="-136.95"/><circle cx="90" cy="90" r="77" stroke="#017c82" stroke-dasharray="100.72 483.81" stroke-dashoffset="-269.44"/><circle cx="90" cy="90" r="77" stroke="#b5eee6" stroke-dasharray="59.03 483.81" stroke-dashoffset="-372.16"/><circle cx="90" cy="90" r="77" stroke="#3e8e8a" stroke-dasharray="48.61 483.81" stroke-dashoffset="-433.19"/></svg><div class="c"><small>Spent</small><b><span data-inr="32500" data-compact>₹32,500</span></b></div></div>
-                  <div class="mt16"><div class="crow"><span class="badge sq"><span class="ms" aria-hidden="true">shopping_cart</span></span><div class="grow"><div class="ctop"><span class="grow">Groceries</span><b><span data-inr="9200">₹9,200</span></b></div><div class="cbot"><span class="bar"><i style="width:28.3%;background:#08bdb1"></i></span><small>28%</small></div></div></div><div class="crow"><span class="badge sq"><span class="ms" aria-hidden="true">shopping_bag</span></span><div class="grow"><div class="ctop"><span class="grow">Shopping</span><b><span data-inr="8900">₹8,900</span></b></div><div class="cbot"><span class="bar"><i style="width:27.4%;background:#7bf2d3"></i></span><small>27%</small></div></div></div><div class="crow"><span class="badge sq"><span class="ms" aria-hidden="true">receipt_long</span></span><div class="grow"><div class="ctop"><span class="grow">Bills</span><b><span data-inr="6900">₹6,900</span></b></div><div class="cbot"><span class="bar"><i style="width:21.2%;background:#017c82"></i></span><small>21%</small></div></div></div><div class="crow"><span class="badge sq"><span class="ms" aria-hidden="true">directions_car</span></span><div class="grow"><div class="ctop"><span class="grow">Transport</span><b><span data-inr="4100">₹4,100</span></b></div><div class="cbot"><span class="bar"><i style="width:12.6%;background:#b5eee6"></i></span><small>13%</small></div></div></div><div class="crow"><span class="badge sq"><span class="ms" aria-hidden="true">local_cafe</span></span><div class="grow"><div class="ctop"><span class="grow">Cafes</span><b><span data-inr="3400">₹3,400</span></b></div><div class="cbot"><span class="bar"><i style="width:10.5%;background:#3e8e8a"></i></span><small>10%</small></div></div></div></div>
+                  <div class="mt16"><div class="crow"><span class="badge sq"><svg class="ms" aria-hidden="true"><use href="#l-shopping-cart"/></svg></span><div class="grow"><div class="ctop"><span class="grow">Groceries</span><b><span data-inr="9200">₹9,200</span></b></div><div class="cbot"><span class="bar"><i style="width:28.3%;background:#08bdb1"></i></span><small>28%</small></div></div></div><div class="crow"><span class="badge sq"><svg class="ms" aria-hidden="true"><use href="#l-shopping-bag"/></svg></span><div class="grow"><div class="ctop"><span class="grow">Shopping</span><b><span data-inr="8900">₹8,900</span></b></div><div class="cbot"><span class="bar"><i style="width:27.4%;background:#7bf2d3"></i></span><small>27%</small></div></div></div><div class="crow"><span class="badge sq"><svg class="ms" aria-hidden="true"><use href="#l-receipt-text"/></svg></span><div class="grow"><div class="ctop"><span class="grow">Bills</span><b><span data-inr="6900">₹6,900</span></b></div><div class="cbot"><span class="bar"><i style="width:21.2%;background:#017c82"></i></span><small>21%</small></div></div></div><div class="crow"><span class="badge sq"><svg class="ms" aria-hidden="true"><use href="#l-car"/></svg></span><div class="grow"><div class="ctop"><span class="grow">Transport</span><b><span data-inr="4100">₹4,100</span></b></div><div class="cbot"><span class="bar"><i style="width:12.6%;background:#b5eee6"></i></span><small>13%</small></div></div></div><div class="crow"><span class="badge sq"><svg class="ms" aria-hidden="true"><use href="#l-coffee"/></svg></span><div class="grow"><div class="ctop"><span class="grow">Cafes</span><b><span data-inr="3400">₹3,400</span></b></div><div class="cbot"><span class="bar"><i style="width:10.5%;background:#3e8e8a"></i></span><small>10%</small></div></div></div></div>
                 </div>
               </div>
             </div>
-            <nav class="navbar"><button class="nb-item on" data-tab="0" type="button" aria-label="Show Home screen"><span class="ms" aria-hidden="true">home</span><span class="l">Home</span></button><button class="nb-item" data-tab="1" type="button" aria-label="Show Budget screen"><span class="ms" aria-hidden="true">account_balance_wallet</span><span class="l">Budget</span></button><span class="nb-add"><i><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M5.7 13h14.6M13 5.7v14.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></i></span><button class="nb-item" data-tab="2" type="button" aria-label="Show Accounts screen"><span class="ms" aria-hidden="true">account_balance</span><span class="l">Accounts</span></button><button class="nb-item" data-tab="3" type="button" aria-label="Show Stats screen"><span class="ms" aria-hidden="true">bar_chart</span><span class="l">Stats</span></button></nav>
+            <nav class="navbar"><button class="nb-item on" data-tab="0" type="button" aria-label="Show Home screen"><svg class="ms" aria-hidden="true"><use href="#l-house"/></svg><span class="l">Home</span></button><button class="nb-item" data-tab="1" type="button" aria-label="Show Budget screen"><svg class="ms" aria-hidden="true"><use href="#l-wallet"/></svg><span class="l">Budget</span></button><span class="nb-add"><i><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M5.7 13h14.6M13 5.7v14.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></i></span><button class="nb-item" data-tab="2" type="button" aria-label="Show Accounts screen"><svg class="ms" aria-hidden="true"><use href="#l-landmark"/></svg><span class="l">Accounts</span></button><button class="nb-item" data-tab="3" type="button" aria-label="Show Stats screen"><svg class="ms" aria-hidden="true"><use href="#l-chart-column"/></svg><span class="l">Stats</span></button></nav>
             <div class="home-indicator" aria-hidden="true"></div>
           </div>
         </div>
@@ -273,6 +319,21 @@
         <h3>Card bills, on time</h3>
         <p>Each card shows what you owe and when the bill is due, and logging a payment brings the balance down.</p>
       </article>
+      <article class="card">
+        <img class="art art-dark" src="/assets/illustrations/bell-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art art-light" src="/assets/illustrations/bell-light.svg" alt="" width="168" height="126" loading="lazy">
+        <h3>Subscriptions, before they renew</h3>
+        <p>See what every repeat charge costs you a month and a year, what's due in the next 30 days, and get a reminder before each one.</p>
+      </article>
+      <article class="card">
+        <img class="art art-dark" src="/assets/illustrations/calendar-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art art-light" src="/assets/illustrations/calendar-light.svg" alt="" width="168" height="126" loading="lazy">
+        <h3>Events to count down to</h3>
+        <p>Trips, birthdays, the day a loan ends. Overvue counts down the days, and yearly events roll over on their own.</p>
+      </article>
+      <article class="card">
+        <img class="art art-dark" src="/assets/illustrations/activity-dark.svg" alt="" width="168" height="126" loading="lazy"><img class="art art-light" src="/assets/illustrations/activity-light.svg" alt="" width="168" height="126" loading="lazy">
+        <h3>Every entry, day by day</h3>
+        <p>Activity lists everything you've logged, grouped by day with the day's total, so any entry is easy to find and fix.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -283,7 +344,7 @@
     <div class="gallery-head">
       <div class="sec-head">
         <h2>A closer look.</h2>
-        <p>Real screens from the app. Flip the theme switch up top to see them in light or dark.</p>
+        <p>Real screens from the app, grouped by what they do. Flip the theme switch up top to see them in light or dark.</p>
       </div>
       <div class="gallery-nav" hidden>
         <button type="button" data-gallery="prev" aria-label="Previous screens"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg></button>
@@ -291,76 +352,184 @@
       </div>
     </div>
   </div>
-  <div class="gallery" tabindex="0" role="region" aria-label="App screens">
-    <figure class="shot">
+  <div class="wrap">
+    <div class="shot-tabs" role="tablist" aria-label="Screen groups" hidden>
+      <button type="button" role="tab" class="shot-tab" data-group="overview" aria-selected="true" aria-controls="screens-gallery">Overview</button>
+      <button type="button" role="tab" class="shot-tab" data-group="insights" aria-selected="false" aria-controls="screens-gallery">Insights</button>
+      <button type="button" role="tab" class="shot-tab" data-group="plan" aria-selected="false" aria-controls="screens-gallery">Budget</button>
+      <button type="button" role="tab" class="shot-tab" data-group="money" aria-selected="false" aria-controls="screens-gallery">Banks &amp; cards</button>
+      <button type="button" role="tab" class="shot-tab" data-group="recurring" aria-selected="false" aria-controls="screens-gallery">Subscriptions &amp; events</button>
+      <button type="button" role="tab" class="shot-tab" data-group="settings" aria-selected="false" aria-controls="screens-gallery">Settings</button>
+    </div>
+  </div>
+  <div class="gallery" id="screens-gallery" tabindex="0" role="region" aria-label="App screens">
+    <figure class="shot" data-group="overview">
       <div class="shot-frame"><div class="shot-screen">
-        <img data-shot="home" src="/assets/shots/in/home-dark.webp" alt="Overvue Home screen with net worth and this month's budget" width="540" height="1171" loading="lazy" decoding="async">
+        <img data-shot="home" src="/assets/shots/in/home-dark.webp" alt="Overvue Home screen with net worth and this month&#x27;s budget" width="540" height="1171" loading="lazy" decoding="async">
         <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
       </div></div>
-      <figcaption><b>Home</b><span>Net worth and this month's budget, at a glance.</span></figcaption>
+      <figcaption><b>Home</b><span>Net worth and this month&#x27;s budget, at a glance.</span></figcaption>
     </figure>
-    <figure class="shot">
-      <div class="shot-frame"><div class="shot-screen">
-        <img data-shot="budget" src="/assets/shots/in/budget-dark.webp" alt="Budget screen with what's left to spend and a month-end forecast" width="540" height="1171" loading="lazy" decoding="async">
-        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
-      </div></div>
-      <figcaption><b>Budget</b><span>What's left, a daily allowance and a month-end forecast.</span></figcaption>
-    </figure>
-    <figure class="shot">
+    <figure class="shot" data-group="overview">
       <div class="shot-frame"><div class="shot-screen">
         <img data-shot="accounts" src="/assets/shots/in/accounts-dark.webp" alt="Accounts screen listing cash, bank accounts, credit cards and investments" width="540" height="1171" loading="lazy" decoding="async">
         <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
       </div></div>
       <figcaption><b>Accounts</b><span>Cash, banks, cards and investments in one list.</span></figcaption>
     </figure>
-    <figure class="shot">
-      <div class="shot-frame"><div class="shot-screen">
-        <img data-shot="stats" src="/assets/shots/in/stats-dark.webp" alt="Stats screen with income, spending, savings rate and a category breakdown" width="540" height="1171" loading="lazy" decoding="async">
-        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
-      </div></div>
-      <figcaption><b>Stats</b><span>Income, spending and savings rate, with a category breakdown.</span></figcaption>
-    </figure>
-    <figure class="shot">
+    <figure class="shot" data-group="overview">
       <div class="shot-frame"><div class="shot-screen">
         <img data-shot="add" src="/assets/shots/in/add-dark.webp" alt="Add expense screen with a number pad and category shortcuts" width="540" height="1171" loading="lazy" decoding="async">
         <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
       </div></div>
       <figcaption><b>Add</b><span>Type the amount, tap a category, done.</span></figcaption>
     </figure>
-    <figure class="shot">
+    <figure class="shot" data-group="overview">
       <div class="shot-frame"><div class="shot-screen">
         <img data-shot="activity" src="/assets/shots/in/activity-dark.webp" alt="Activity screen listing entries by day" width="540" height="1171" loading="lazy" decoding="async">
         <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
       </div></div>
-      <figcaption><b>Activity</b><span>Every entry, grouped by day with the day's total.</span></figcaption>
+      <figcaption><b>Activity</b><span>Every entry, grouped by day with the day&#x27;s total.</span></figcaption>
     </figure>
-    <figure class="shot">
+    <figure class="shot" data-group="insights">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="stats" src="/assets/shots/in/stats-dark.webp" alt="Stats screen with a money health score, savings rate and income, spent and saved" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Stats</b><span>Money health, savings rate and where it went.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="insights">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="stats-breakdown" src="/assets/shots/in/stats-breakdown-dark.webp" alt="Category breakdown with a donut chart and changes against last month" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Breakdown</b><span>Spending by category, against last month.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="insights">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="stats-cashflow" src="/assets/shots/in/stats-cashflow-dark.webp" alt="Cash flow chart for the last four months and a weekday spending chart" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Cash flow &amp; habits</b><span>What came in, what went out, and your costliest days.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="insights">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="ai-insights" src="/assets/shots/in/ai-insights-dark.webp" alt="Overvue AI insights about cafes spending, savings and a grocery cap" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Overvue AI</b><span>Short notes on what changed, when you turn it on.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="insights">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="ask-ai" src="/assets/shots/in/ask-ai-dark.webp" alt="Overvue AI chat with suggested questions about your money" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Ask about your money</b><span>Plain questions, clear answers from your own data.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="plan">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="budget" src="/assets/shots/in/budget-dark.webp" alt="Budget screen with what&#x27;s left to spend and a month-end forecast" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Budget</b><span>What&#x27;s left, a daily allowance and a month-end forecast.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="plan">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="set-budget" src="/assets/shots/in/set-budget-dark.webp" alt="Edit budget screen with the month and monthly limit" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Set a budget</b><span>One monthly limit across all categories.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="plan">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="months" src="/assets/shots/in/months-dark.webp" alt="Month picker for the budget" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Any month</b><span>Jump to any month or year.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="plan">
       <div class="shot-frame"><div class="shot-screen">
         <img data-shot="categories" src="/assets/shots/in/categories-dark.webp" alt="Categories screen with built-in and custom categories" width="540" height="1171" loading="lazy" decoding="async">
         <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
       </div></div>
       <figcaption><b>Categories</b><span>Built-in categories, plus your own.</span></figcaption>
     </figure>
-    <figure class="shot">
+    <figure class="shot" data-group="money">
       <div class="shot-frame"><div class="shot-screen">
-        <img data-shot="banks" src="/assets/shots/in/banks-dark.webp" alt="Add bank account screen showing banks from the selected country" width="540" height="1171" loading="lazy" decoding="async">
+        <img data-shot="bank-accounts" src="/assets/shots/in/bank-accounts-dark.webp" alt="Bank accounts screen with HDFC and ICICI balances" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Bank accounts</b><span>Every account and its balance, with the total on top.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="money">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="credit-cards" src="/assets/shots/in/credit-cards-dark.webp" alt="Credit cards screen with outstanding amounts and due dates" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Credit cards</b><span>What you owe on each card and when it&#x27;s due.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="money">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="investments" src="/assets/shots/in/investments-dark.webp" alt="Investments screen with mutual funds and stocks" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Investments</b><span>Mutual funds and stocks, counted in your net worth.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="money">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="banks" src="/assets/shots/in/banks-dark.webp" alt="Add bank account screen with banks from your country" width="540" height="1171" loading="lazy" decoding="async">
         <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
       </div></div>
       <figcaption><b>Your banks</b><span>Banks and card issuers from your country come first.</span></figcaption>
     </figure>
-    <figure class="shot">
+    <figure class="shot" data-group="recurring">
       <div class="shot-frame"><div class="shot-screen">
-        <img data-shot="profile" src="/assets/shots/in/profile-dark.webp" alt="Profile sheet with plan, subscription, settings and help" width="540" height="1171" loading="lazy" decoding="async">
+        <img data-shot="subscriptions" src="/assets/shots/in/subscriptions-dark.webp" alt="Subscriptions screen with the monthly total and upcoming charges" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Subscriptions</b><span>Monthly and yearly cost, and what renews next.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="recurring">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="add-subscription" src="/assets/shots/in/add-subscription-dark.webp" alt="Add subscription screen with popular services and a reminder option" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Add a subscription</b><span>Pick a service, set the price and a reminder.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="recurring">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="events" src="/assets/shots/in/events-dark.webp" alt="Events screen counting down to a trip, a birthday, a loan&#x27;s end and tax filing" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Events</b><span>Count down to trips, birthdays and due dates.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="recurring">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="add-event" src="/assets/shots/in/add-event-dark.webp" alt="Add event screen with event types like birthday, trip and loan ends" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Add an event</b><span>Birthdays, trips, loan ends and more, yearly if you like.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="settings">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="profile" src="/assets/shots/in/profile-dark.webp" alt="Profile screen with the plan, Overvue AI and settings" width="540" height="1171" loading="lazy" decoding="async">
         <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
       </div></div>
       <figcaption><b>Profile</b><span>Your plan, subscription and settings in one place.</span></figcaption>
     </figure>
-    <figure class="shot">
+    <figure class="shot" data-group="settings">
       <div class="shot-frame"><div class="shot-screen">
-        <img data-shot="months" src="/assets/shots/in/months-dark.webp" alt="Month picker showing the months of the year" width="540" height="1171" loading="lazy" decoding="async">
+        <img data-shot="settings" src="/assets/shots/in/settings-dark.webp" alt="Settings screen with preferences and notifications" width="540" height="1171" loading="lazy" decoding="async">
         <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
       </div></div>
-      <figcaption><b>Any month</b><span>Jump to any month or year.</span></figcaption>
+      <figcaption><b>Settings</b><span>Currency, number format, appearance and reminders.</span></figcaption>
+    </figure>
+    <figure class="shot" data-group="settings">
+      <div class="shot-frame"><div class="shot-screen">
+        <img data-shot="home-settings" src="/assets/shots/in/home-settings-dark.webp" alt="Home screen settings with section and net worth toggles" width="540" height="1171" loading="lazy" decoding="async">
+        <div class="shot-chrome" aria-hidden="true"><span>9:41</span><span class="sb-icons"><svg><use href="#i-signal"/></svg><svg><use href="#i-wifi"/></svg><svg class="sb-batt"><use href="#i-battery"/></svg></span></div>
+      </div></div>
+      <figcaption><b>Your Home screen</b><span>Choose what Home shows and what counts in net worth.</span></figcaption>
     </figure>
   </div>
 </section>
@@ -438,19 +607,19 @@
             <div class="sc r24 mt16">
               <div class="ctitle">
                 <div class="grow"><div class="tm">Spending forecast</div><div class="sub13 mt3">At your current daily pace</div></div>
-                <span class="mchip"><span data-month>October</span><span class="ms" aria-hidden="true">keyboard_arrow_down</span></span>
+                <span class="mchip"><span data-month>October</span><svg class="ms" aria-hidden="true"><use href="#l-chevron-down"/></svg></span>
               </div>
               <div class="amt28 pos mt20"><span data-inr="47976">₹47,976</span></div>
               <div class="sub13 mt4">Projected month-end spend</div>
               <div class="mt20"><svg class="chart" viewBox="0 0 313 200" aria-hidden="true"><line class="gl" x1="40" y1="176.0" x2="305" y2="176.0"/><text class="ax" x="32" y="180.0" text-anchor="end" data-inr="0" data-short>₹0</text><line class="gl" x1="40" y1="120.7" x2="305" y2="120.7"/><text class="ax" x="32" y="124.7" text-anchor="end" data-inr="20000" data-short>₹20K</text><line class="gl" x1="40" y1="65.3" x2="305" y2="65.3"/><text class="ax" x="32" y="69.3" text-anchor="end" data-inr="40000" data-short>₹40K</text><line class="gl" x1="40" y1="10.0" x2="305" y2="10.0"/><text class="ax" x="32" y="14.0" text-anchor="end" data-inr="60000" data-short>₹60K</text><path class="area" d="M40.0,172.7 L57.7,165.2 L75.3,159.1 L93.0,148.9 L110.7,141.7 L128.3,132.0 L146.0,122.6 L163.7,114.9 L181.3,104.6 L199.0,94.7 L216.7,86.1 L305.0,43.3 L305.0,176.0 L40.0,176.0 Z" fill="#08bdb1"/><line class="today" x1="216.7" y1="10" x2="216.7" y2="176"/><line x1="40" y1="37.7" x2="305" y2="37.7" class="bline" stroke-width="1.5" stroke-dasharray="6 4"/><text class="blabel" x="44" y="31.7">Budget <tspan data-inr="50000" data-short>₹50K</tspan></text><polyline points="40.0,172.7 57.7,165.2 75.3,159.1 93.0,148.9 110.7,141.7 128.3,132.0 146.0,122.6 163.7,114.9 181.3,104.6 199.0,94.7 216.7,86.1" fill="none" stroke="#08bdb1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="216.7" y1="86.1" x2="305.0" y2="43.3" stroke="#08bdb1" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/><circle class="dot" cx="216.7" cy="86.1" r="4" stroke="#08bdb1"/><circle class="dot" cx="305.0" cy="43.3" r="4" stroke="#08bdb1"/><text class="tlabel" x="216.7" y="6" text-anchor="middle">Today</text><text class="ax" x="40.0" y="196" text-anchor="start" data-day="1">1 Oct</text><text class="ax" x="101.8" y="196" text-anchor="middle" data-day="8">8 Oct</text><text class="ax" x="163.7" y="196" text-anchor="middle" data-day="15">15 Oct</text><text class="ax" x="225.5" y="196" text-anchor="middle" data-day="22">22 Oct</text><text class="ax" x="305.0" y="196" text-anchor="end" data-day="last">31 Oct</text></svg></div>
               <div class="mt14"><div class="clegend"><span><svg width="18" height="2" aria-hidden="true"><line x1="0" y1="1" x2="18" y2="1" stroke="#08bdb1" stroke-width="2"/></svg>Spent</span><span><svg width="18" height="2" aria-hidden="true"><line x1="0" y1="1" x2="18" y2="1" stroke="#08bdb1" stroke-width="2" stroke-dasharray="4 3"/></svg>Projected</span></div></div>
               <div class="banner mt16">
-                <span class="bi"><span class="ms" aria-hidden="true">check_circle</span></span>
+                <span class="bi"><svg class="ms" aria-hidden="true"><use href="#l-circle-check"/></svg></span>
                 <div class="grow"><b>On track to stay under budget</b><small>At this pace you'll have <span data-inr="2024">₹2,024</span> left at month-end.</small></div>
               </div>
             </div>
           </div>
-          <nav class="navbar" aria-hidden="true"><span class="nb-item"><span class="ms" aria-hidden="true">home</span><span class="l">Home</span></span><span class="nb-item on"><span class="ms" aria-hidden="true">account_balance_wallet</span><span class="l">Budget</span></span><span class="nb-add"><i><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M5.7 13h14.6M13 5.7v14.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></i></span><span class="nb-item"><span class="ms" aria-hidden="true">account_balance</span><span class="l">Accounts</span></span><span class="nb-item"><span class="ms" aria-hidden="true">bar_chart</span><span class="l">Stats</span></span></nav>
+          <nav class="navbar" aria-hidden="true"><span class="nb-item"><svg class="ms" aria-hidden="true"><use href="#l-house"/></svg><span class="l">Home</span></span><span class="nb-item on"><svg class="ms" aria-hidden="true"><use href="#l-wallet"/></svg><span class="l">Budget</span></span><span class="nb-add"><i><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M5.7 13h14.6M13 5.7v14.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></i></span><span class="nb-item"><svg class="ms" aria-hidden="true"><use href="#l-landmark"/></svg><span class="l">Accounts</span></span><span class="nb-item"><svg class="ms" aria-hidden="true"><use href="#l-chart-column"/></svg><span class="l">Stats</span></span></nav>
           <div class="home-indicator" aria-hidden="true"></div>
         </div>
       </div>
@@ -532,6 +701,8 @@
         <a href="/budget-planner/">Budget planner</a>
         <a href="/lend-borrow-tracker/">Lend &amp; borrow tracker</a>
         <a href="/credit-card-tracker/">Credit card tracker</a>
+        <a href="/subscription-tracker/">Subscription tracker</a>
+        <a href="/event-countdown/">Event countdown</a>
       </nav>
       <nav class="foot-col" aria-label="Help">
         <h4>Help</h4>
@@ -634,6 +805,34 @@
     io.observe(g);
   }
 
+  // Tabs show one group of screens at a time; without script every screen shows.
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.shot-tab'));
+  var shots = Array.prototype.slice.call(g.querySelectorAll('.shot[data-group]'));
+  function show(tab) {
+    var group = tab.getAttribute('data-group');
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    shots.forEach(function (s) { s.hidden = s.getAttribute('data-group') !== group; });
+    g.scrollLeft = 0;
+    if (prev && next) ends(); // set up below; still undefined on the first call
+  }
+  if (tabs.length) {
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { show(t); });
+      t.addEventListener('keydown', function (e) {
+        var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        var n = tabs[(i + d + tabs.length) % tabs.length];
+        n.focus(); show(n);
+      });
+    });
+    tabs[0].parentNode.hidden = false;
+    show(tabs[0]);
+  }
+
   var nav = document.querySelector('.gallery-nav');
   var prev = document.querySelector('[data-gallery="prev"]'), next = document.querySelector('[data-gallery="next"]');
   if (!nav || !prev || !next) return;
@@ -646,7 +845,7 @@
   }
   function ends() {
     prev.disabled = g.scrollLeft <= 2;
-    next.disabled = g.scrollLeft >= g.scrollWidth - g.clientWidth - 2;
+    next.disabled = g.scrollLeft >= g.scrollWidth - g.clientWidth - 8; // a few px of overflow is rounding, not more screens
   }
   prev.addEventListener('click', function () { page(-1); });
   next.addEventListener('click', function () { page(1); });

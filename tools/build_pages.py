@@ -306,6 +306,40 @@ FEATURES = [
             ("Does Overvue remind me about card bills?", "Each card shows its due date in the app, and you can turn on a daily reminder to keep your entries up to date."),
         ],
     },
+    {
+        "slug": "subscription-tracker", "nav": "Subscription tracker", "art": "bell",
+        "title": "Subscription Tracker App",
+        "desc": "Track every subscription in one place: see your monthly and yearly cost, what renews in the next 30 days, and get a reminder before each charge.",
+        "h1": "A subscription tracker that tells you before you're charged",
+        "lede": "Streaming, music, the gym, cloud storage. Overvue adds up every repeat charge, shows what's coming in the next 30 days and reminds you before each one renews.",
+        "sections": [
+            ("What your subscriptions really cost", "<p>Overvue totals your active subscriptions as a monthly figure and a yearly one, so a handful of small charges can't hide. Monthly and yearly plans are both counted.</p>"),
+            ("The next 30 days at a glance", "<p>A timeline shows each upcoming charge from today to 30 days out, and the list groups them into this week and this month, soonest first, with the card or account each one is billed to.</p>"),
+            ("A reminder before each charge", "<p>Overvue reminds you before a subscription renews, so you have time to cancel the ones you no longer use. Pause a subscription and it drops out of your totals.</p>"),
+        ],
+        "ticks": ["Monthly and yearly totals", "Upcoming charges for the next 30 days", "The card or account each one bills to", "A reminder before each renewal", "Pause without deleting"],
+        "faq": [
+            ("Does Overvue find my subscriptions automatically?", "No. You add each subscription yourself, picking from popular services or entering your own, so Overvue never needs access to your bank or email."),
+            ("Can I track yearly subscriptions?", "Yes. Set a subscription to monthly or yearly and Overvue includes it in both the monthly and yearly totals."),
+        ],
+    },
+    {
+        "slug": "event-countdown", "nav": "Event countdown", "art": "calendar",
+        "title": "Event Countdown App for Trips & Birthdays",
+        "desc": "Count down to trips, birthdays, loan end dates and tax deadlines in Overvue. Yearly events roll over on their own, so you never miss one.",
+        "h1": "Count down to the dates that matter to your money",
+        "lede": "A trip you're saving for, a birthday gift to budget, the month your car loan ends, a tax deadline. Overvue keeps them in one list with the days left to each.",
+        "sections": [
+            ("Next up, front and centre", "<p>The soonest event sits at the top with a big days-left count, its date and any note you added, like \"flights booked, hotel not yet\".</p>"),
+            ("Yearly events roll over", "<p>Mark birthdays, anniversaries and annual deadlines as yearly and Overvue moves them to the next year once the day passes.</p>"),
+            ("Plan around what's coming", "<p>Every other event is listed soonest first, so you can see what's ahead and set money aside in good time.</p>"),
+        ],
+        "ticks": ["Days left to each event", "Yearly events that repeat on their own", "Notes on any event", "Ready-made types like trips, birthdays and loan EMIs"],
+        "faq": [
+            ("What can I count down to?", "Anything with a date: trips, birthdays, anniversaries, the end of a loan, a tax filing deadline or a goal of your own."),
+            ("What happens when an event passes?", "Yearly events move to next year automatically. One-off events move to a Passed list, where you can remove them or set a new date."),
+        ],
+    },
 ]
 
 GENERAL_FAQ = [
