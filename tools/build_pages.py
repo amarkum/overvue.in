@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Generates the text pages (privacy, terms, support, FAQ, 404), the feature pages and sitemap.xml from a shared shell.
+"""Generates the text pages (privacy, terms, support, FAQ, 404), the feature pages, the guides (tools/guides.py) and sitemap.xml from a shared shell.
 
 Run from the repo root:  python3 tools/build_pages.py
 index.html is hand-written and not touched here.
 """
 from datetime import date
 from pathlib import Path
+
+from guides import GUIDES, PUBLISHED
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -78,6 +80,7 @@ SHELL = """<!doctype html>
 {foot_features}
       <nav class="foot-col" aria-label="Help">
         <h4>Help</h4>
+        <a href="/guides/">Money guides</a>
         <a href="/faq/">FAQ</a>
         <a href="/support/">Support</a>
         <a href="mailto:support@overvue.in">support@overvue.in</a>
@@ -373,8 +376,8 @@ def nav_html(current):
           <a href="/features/" class="all">All features</a>
         </div>
       </div>
-      <a href="/faq/">FAQ</a>
-      <a href="/support/">Support</a>"""
+      <a href="/guides/"{" aria-current=\"page\"" if current.startswith("guides") else ""}>Guides</a>
+      <a href="/faq/">FAQ</a>"""
 
 FOOT_FEATURES = '      <nav class="foot-col" aria-label="Features">\n        <h4>Features</h4>\n' + "\n".join(
     f'        <a href="/{f["slug"]}/">{escape(f["nav"])}</a>' for f in FEATURES) + "\n      </nav>"
@@ -407,6 +410,13 @@ def cta():
 def doc_main(body):
     return f'<main class="doc">\n  <div class="wrap">\n{body}\n  </div>\n</main>'
 
+def guide_links(f):
+    mine = [g for g in GUIDES if g["feature"] == f["slug"]]
+    if not mine:
+        return ""
+    items = "\n".join(f'        <li><a href="/guides/{g["slug"]}/">{escape(g["h1"])}</a></li>' for g in mine)
+    return f"      <h2>Guides</h2>\n      <ul>\n{items}\n      </ul>"
+
 def feature_main(f):
     secs = "\n".join(f"      <h2>{escape(h)}</h2>\n      {b}" for h, b in f["sections"])
     ticks = "\n".join(f"        <li>{escape(t)}</li>" for t in f["ticks"])
@@ -430,6 +440,7 @@ def feature_main(f):
       </ul>
       <h2>Frequently asked questions</h2>
 {faq_html(f["faq"])}
+{guide_links(f)}
   </div>
 </section>
 <section class="divider">
@@ -465,6 +476,79 @@ def hub_main():
 {cta()}
 </main>"""
 
+FEATURE_BY_SLUG = {f["slug"]: f for f in FEATURES}
+
+def words(html):
+    import re
+    return len(re.sub(r"<[^>]+>", " ", html).split())
+
+def guide_card(g):
+    return (f'      <a class="card rel guide-card" href="/guides/{g["slug"]}/"><span class="eyebrow">{max(1, round(words(g["body"]) / 200))} min read</span>'
+            f'<h3>{escape(g["h1"])}</h3><p>{escape(g["desc"])}</p></a>')
+
+def guide_main(g):
+    f = FEATURE_BY_SLUG[g["feature"]]
+    related = [o for o in GUIDES if o is not g and o["feature"] == g["feature"]] + [o for o in GUIDES if o is not g and o["feature"] != g["feature"]]
+    minutes = max(1, round(words(g["body"]) / 200))
+    return f"""<main>
+<article>
+<section class="feat-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/guides/">Guides</a> / <span>{escape(g["title"])}</span></nav>
+    <h1>{escape(g["h1"])}</h1>
+    <p class="lede">{escape(g["lede"])}</p>
+    <p class="guide-meta">{minutes} min read · Updated <time datetime="{PUBLISHED}">{date.fromisoformat(PUBLISHED).strftime("%-d %B %Y")}</time></p>
+  </div>
+</section>
+<section class="doc feat-body guide-body">
+  <div class="wrap">
+{g["body"].strip()}
+    <aside class="guide-cta">
+      {art(f["art"], "feat-art")}
+      <div><h2>Do this in Overvue</h2><p>{escape(f["lede"])}</p><p><a href="/{f["slug"]}/">See the {escape(f["nav"].lower())}</a></p></div>
+    </aside>
+    <p class="note">This guide is general information, not financial advice. Your situation may differ, so check the details that apply to you.</p>
+  </div>
+</section>
+</article>
+<section class="divider">
+  <div class="wrap">
+    <div class="sec-head"><h2>More money guides</h2></div>
+    <div class="grid">
+{chr(10).join(guide_card(o) for o in related[:3])}
+    </div>
+  </div>
+</section>
+{cta()}
+</main>"""
+
+def guides_hub():
+    return f"""<main>
+<section class="feat-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Guides</span></nav>
+    <h1>Money guides</h1>
+    <p class="lede">Plain-language guides to budgeting, tracking spending, net worth, credit cards and saving. Short, practical and free.</p>
+  </div>
+</section>
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="grid">
+{chr(10).join(guide_card(g) for g in GUIDES)}
+    </div>
+  </div>
+</section>
+{cta()}
+</main>"""
+
+def article_ld(g):
+    return ld({"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "description": g["desc"],
+               "datePublished": PUBLISHED, "dateModified": PUBLISHED, "inLanguage": "en-IN",
+               "mainEntityOfPage": f"https://overvue.in/guides/{g['slug']}/",
+               "image": "https://overvue.in/assets/img/og-image.png",
+               "author": {"@type": "Organization", "name": "Overvue", "url": "https://overvue.in/"},
+               "publisher": {"@type": "Organization", "name": "Overvue", "logo": {"@type": "ImageObject", "url": "https://overvue.in/assets/img/apple-touch-icon.png"}}})
+
 FAQ_BODY = "    <h1>Frequently asked questions</h1>\n    <p class=\"meta\">Quick answers about the Overvue personal finance app.</p>\n" + faq_html(GENERAL_FAQ) + \
     '\n    <p style="margin-top:32px">Still stuck? See <a href="/support/">Support</a> or email <a href="mailto:support@overvue.in">support@overvue.in</a>.</p>'
 
@@ -482,6 +566,14 @@ for f in FEATURES:
     path = f"/{f['slug']}/"
     PAGES.append((f"{f['slug']}/index.html", path, f["title"], f["desc"], feature_main(f), True,
                   faq_ld(f["faq"]) + crumbs_ld(("Home", "/"), ("Features", "/features/"), (f["nav"], path))))
+
+PAGES.append(("guides/index.html", "/guides/", "Money Guides: Budgeting, Saving & Net Worth",
+              "Free, plain-language guides to budgeting, tracking expenses, net worth, credit cards, subscriptions and saving.",
+              guides_hub(), True, crumbs_ld(("Home", "/"), ("Guides", "/guides/"))))
+for g in GUIDES:
+    path = f"/guides/{g['slug']}/"
+    PAGES.append((f"guides/{g['slug']}/index.html", path, g["title"], g["desc"], guide_main(g), True,
+                  article_ld(g) + crumbs_ld(("Home", "/"), ("Guides", "/guides/"), (g["title"], path))))
 
 for out, path, title, desc, main, indexable, schema in PAGES:
     robots = "" if indexable else '<meta name="robots" content="noindex">'
