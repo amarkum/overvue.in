@@ -1,4 +1,9 @@
+# Overvue — https://overvue.in
+# Everything is public. Search engines and AI assistants are welcome.
 User-agent: *
 Allow: /
+
+# A Markdown summary for AI assistants: https://overvue.in/llms.txt
+# The full text of the feature pages and guides: https://overvue.in/llms-full.txt
 
 Sitemap: https://overvue.in/sitemap.xml

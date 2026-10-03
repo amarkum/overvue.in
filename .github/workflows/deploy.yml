@@ -20,8 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # full history, so sitemap.xml can date each page by its last commit
 
-      - name: Generate text pages (privacy, terms, support, 404)
+      - name: Generate pages, sitemap.xml and llms.txt
         run: python3 tools/build_pages.py
 
       - uses: actions/configure-pages@v6
@@ -36,6 +38,8 @@ jobs:
           test -f _site/index.html
           test -f _site/privacy-policy/index.html
           test -f _site/terms-of-service/index.html
+          test -f _site/sitemap.xml
+          test -f _site/llms.txt
 
       - uses: actions/upload-pages-artifact@v5
         with:

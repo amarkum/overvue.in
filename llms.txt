@@ -1,0 +1,49 @@
+# Overvue
+
+> Overvue is a personal finance app for iPhone and Android that answers one question: how much money do you actually have right now? It puts bank accounts, credit cards, spending, a monthly budget, subscriptions, upcoming events and money lent or borrowed in one place, and shows your net worth. Entries are added by hand: Overvue never asks for bank logins and does not connect to banks. No ads, and personal data is not sold.
+
+Key facts:
+
+- Platforms: iOS and Android. Website: https://overvue.in. Support: support@overvue.in
+- Net worth = liquid balances + money lent - debt (credit card balances and money borrowed)
+- Budget: one monthly spending limit, what's left per day, and a month-end forecast from the current pace
+- Subscriptions: monthly and yearly totals, charges due in the next 30 days, a reminder before each renewal
+- Events: countdowns to trips, birthdays, loan end dates and deadlines; yearly events repeat
+- Overvue AI (optional, off until turned on): short notes on the month and answers to questions about your own money. It sees amounts, dates, categories, notes and account nicknames, never email, password or card numbers; chats are not stored. Free plan: 10 questions a month and a fresh set of insights daily; Pro: 300 questions a month
+- Data syncs to the user's own account (Google Firebase) with per-user access rules
+- Works in many currencies; banks and card issuers from 27 countries are built in
+
+## Features
+
+- [Net Worth Tracker App](https://overvue.in/net-worth-tracker/): Track your net worth in one place. Overvue adds up your bank balances and money lent, subtracts card debt and loans, and shows the trend over time.
+- [Expense Tracker App](https://overvue.in/expense-tracker/): Log expenses and income in a couple of taps, see spending by category, compare with last month and track your savings rate with Overvue.
+- [Monthly Budget Planner App](https://overvue.in/budget-planner/): Set one monthly budget, see what's left to spend per day and get a month-end forecast so overspending never sneaks up on you.
+- [Money Lent & Borrowed Tracker App](https://overvue.in/lend-borrow-tracker/): Keep track of money you've lent to friends or borrowed from them. Overvue counts it toward your net worth so nothing slips through.
+- [Credit Card Bill & Due Date Tracker App](https://overvue.in/credit-card-tracker/): Keep credit cards next to your bank accounts, track card payments and see when each bill is due with Overvue.
+- [Subscription Tracker App](https://overvue.in/subscription-tracker/): Track every subscription in one place: see your monthly and yearly cost, what renews in the next 30 days, and get a reminder before each charge.
+- [Event Countdown App for Trips & Birthdays](https://overvue.in/event-countdown/): Count down to trips, birthdays, loan end dates and tax deadlines in Overvue. Yearly events roll over on their own, so you never miss one.
+- [AI Money Assistant for Your Finances](https://overvue.in/ai-money-assistant/): Overvue AI answers questions about your money and writes short notes on your month, from your own data. Off until you turn it on; chats aren't stored.
+
+## Guides
+
+- [How to calculate your net worth, step by step](https://overvue.in/guides/how-to-calculate-net-worth/): Net worth is what you own minus what you owe. Here's how to add up your assets and debts, with a worked example and what to do with the number.
+- [How to make a monthly budget you'll actually stick to](https://overvue.in/guides/how-to-make-a-monthly-budget/): A practical way to set a monthly budget: start from real spending, pick one limit, check your daily pace and adjust. No spreadsheets needed.
+- [The 50/30/20 budget rule, explained with examples](https://overvue.in/guides/50-30-20-budget-rule/): The 50/30/20 rule splits take-home pay into needs, wants and savings. How it works, a worked example, and when to adjust the percentages.
+- [How to track your expenses: methods that actually work](https://overvue.in/guides/how-to-track-expenses/): Notebook, spreadsheet, bank statements or an app: the main ways to track expenses compared, and the habits that make tracking stick.
+- [What is a good savings rate, and how do you work out yours?](https://overvue.in/guides/what-is-a-good-savings-rate/): Your savings rate is the share of income you keep. How to calculate it, what's a good target, and practical ways to raise it.
+- [How to keep track of money you lend to friends and family](https://overvue.in/guides/keep-track-of-money-lent-to-friends/): Lending money to friends is easy; remembering who owes what isn't. Simple ways to record loans and IOUs and ask for repayment without the awkwardness.
+- [How to find and cancel the subscriptions you don't use](https://overvue.in/guides/find-and-cancel-unused-subscriptions/): Streaming, apps, gym, cloud storage: subscriptions add up quietly. How to find every repeat charge, decide what to keep and stop paying for the rest.
+- [Credit card statement date vs due date: what's the difference?](https://overvue.in/guides/credit-card-statement-date-vs-due-date/): The statement date closes your billing cycle; the due date is when payment is due. How they work together and how to avoid interest and late fees.
+- [How big should your emergency fund be?](https://overvue.in/guides/how-big-should-an-emergency-fund-be/): An emergency fund covers job loss, medical bills and urgent repairs. How much to keep, where to keep it and how to build it month by month.
+- [Sinking funds: how to save for trips, birthdays and big bills](https://overvue.in/guides/sinking-funds/): A sinking fund spreads a known future cost over the months before it. How to set one up for trips, gifts, annual fees and other dated expenses.
+
+## Help
+
+- [Frequently asked questions](https://overvue.in/faq/): Bank connections, net worth, privacy, currencies, sync and account deletion.
+- [Support](https://overvue.in/support/): How to contact the team, report a bug or request account deletion.
+
+## Optional
+
+- [Privacy Policy](https://overvue.in/privacy-policy/): What the app collects, where it is stored and your rights.
+- [Terms of Service](https://overvue.in/terms-of-service/): The terms for using Overvue.
+- [Full text](https://overvue.in/llms-full.txt): Every feature page, guide and the FAQ as one Markdown file.

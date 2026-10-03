@@ -608,8 +608,109 @@ for out, path, title, desc, main, indexable, schema in PAGES:
     if out.endswith("/index.html"):
         (ROOT / (out[:-len("/index.html")] + ".html")).write_text(html, encoding="utf-8")
 
+# ---------- Sitemap ----------
+import re
+import subprocess
+
 TODAY = date.today().isoformat()
-sitemap = "".join(f"  <url><loc>https://overvue.in{p[1]}</loc><lastmod>{TODAY}</lastmod></url>\n" for p in PAGES if p[5])
-(ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-                                  f"  <url><loc>https://overvue.in/</loc><lastmod>{TODAY}</lastmod></url>\n" + sitemap + "</urlset>\n", encoding="utf-8")
+
+def lastmod(rel):
+    """Date of the last commit that changed a file, or today if it has changes not yet committed.
+    Honest dates keep search engines trusting lastmod (the deploy checks out full history for this)."""
+    try:
+        dirty = subprocess.run(["git", "status", "--porcelain", "--", rel], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+        if dirty:
+            return TODAY
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", rel], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+        return out or TODAY
+    except OSError:
+        return TODAY
+
+HOME = (ROOT / "index.html").read_text(encoding="utf-8")
+SHOTS = list(dict.fromkeys(re.findall(r'data-shot="([a-z0-9-]+)"', HOME)))
+home_images = "".join(
+    f"    <image:image><image:loc>https://overvue.in/assets/shots/in/{n}-{t}.webp</image:loc></image:image>\n"
+    for n in SHOTS for t in ("dark", "light"))
+home_images += "    <image:image><image:loc>https://overvue.in/assets/img/og-image.png</image:loc></image:image>\n"
+
+def url(path, rel, images=""):
+    return f"  <url>\n    <loc>https://overvue.in{path}</loc>\n    <lastmod>{lastmod(rel)}</lastmod>\n{images}  </url>\n"
+
+def page_images(main):
+    arts = list(dict.fromkeys(re.findall(r'/assets/illustrations/([a-z]+)-dark\.svg', main)))
+    return "".join(f"    <image:image><image:loc>https://overvue.in/assets/illustrations/{a}-dark.svg</image:loc></image:image>\n" for a in arts[:1])
+
+entries = url("/", "index.html", home_images) + "".join(
+    url(p[1], p[0], page_images(p[4])) for p in PAGES if p[5])
+(ROOT / "sitemap.xml").write_text(
+    '<?xml version="1.0" encoding="UTF-8"?>\n'
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
+    + entries + "</urlset>\n", encoding="utf-8")
 print("wrote sitemap.xml")
+
+# ---------- llms.txt (https://llmstxt.org) ----------
+def md(html):
+    """Just enough HTML-to-Markdown for the generated pages and guides."""
+    t = html
+    t = re.sub(r"<h2[^>]*>(.*?)</h2>", r"\n## \1\n", t, flags=re.S)
+    t = re.sub(r"<h3[^>]*>(.*?)</h3>", r"\n### \1\n", t, flags=re.S)
+    t = re.sub(r"<li[^>]*>(.*?)</li>", r"- \1", t, flags=re.S)
+    t = re.sub(r"<(strong|b)>(.*?)</\1>", r"**\2**", t, flags=re.S)
+    t = re.sub(r'<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>', lambda m: f"[{m.group(2)}]({m.group(1) if m.group(1).startswith(('http', 'mailto')) else 'https://overvue.in' + m.group(1)})", t, flags=re.S)
+    t = re.sub(r"</p>|<br>", "\n", t)
+    t = re.sub(r"<[^>]+>", "", t)
+    t = t.replace("&amp;", "&").replace("&quot;", '"').replace("&#x27;", "'")
+    t = re.sub(r"[ \t]+\n", "\n", t)
+    t = re.sub(r"\n[ \t]+", "\n", t)
+    return re.sub(r"\n{3,}", "\n\n", t).strip()
+
+INTRO = """# Overvue
+
+> Overvue is a personal finance app for iPhone and Android that answers one question: how much money do you actually have right now? It puts bank accounts, credit cards, spending, a monthly budget, subscriptions, upcoming events and money lent or borrowed in one place, and shows your net worth. Entries are added by hand: Overvue never asks for bank logins and does not connect to banks. No ads, and personal data is not sold.
+
+Key facts:
+
+- Platforms: iOS and Android. Website: https://overvue.in. Support: support@overvue.in
+- Net worth = liquid balances + money lent - debt (credit card balances and money borrowed)
+- Budget: one monthly spending limit, what's left per day, and a month-end forecast from the current pace
+- Subscriptions: monthly and yearly totals, charges due in the next 30 days, a reminder before each renewal
+- Events: countdowns to trips, birthdays, loan end dates and deadlines; yearly events repeat
+- Overvue AI (optional, off until turned on): short notes on the month and answers to questions about your own money. It sees amounts, dates, categories, notes and account nicknames, never email, password or card numbers; chats are not stored. Free plan: 10 questions a month and a fresh set of insights daily; Pro: 300 questions a month
+- Data syncs to the user's own account (Google Firebase) with per-user access rules
+- Works in many currencies; banks and card issuers from 27 countries are built in
+"""
+
+def link(path, title, desc):
+    return f"- [{title}](https://overvue.in{path}): {desc}"
+
+llms = [INTRO,
+        "## Features\n",
+        *[link(f"/{f['slug']}/", f["title"], f["desc"]) for f in FEATURES],
+        "\n## Guides\n",
+        *[link(f"/guides/{g['slug']}/", g["h1"][0].upper() + g["h1"][1:], g["desc"]) for g in GUIDES],
+        "\n## Help\n",
+        link("/faq/", "Frequently asked questions", "Bank connections, net worth, privacy, currencies, sync and account deletion."),
+        link("/support/", "Support", "How to contact the team, report a bug or request account deletion."),
+        "\n## Optional\n",
+        link("/privacy-policy/", "Privacy Policy", "What the app collects, where it is stored and your rights."),
+        link("/terms-of-service/", "Terms of Service", "The terms for using Overvue."),
+        link("/llms-full.txt", "Full text", "Every feature page, guide and the FAQ as one Markdown file."),
+        ""]
+(ROOT / "llms.txt").write_text("\n".join(llms), encoding="utf-8")
+print("wrote llms.txt")
+
+full = [INTRO, "\n# Features\n"]
+for f in FEATURES:
+    full.append(f"\n## {f['title']}\n\nURL: https://overvue.in/{f['slug']}/\n\n{f['lede']}\n")
+    for h, b in f["sections"]:
+        full.append(f"### {h}\n\n{md(b)}\n")
+    full.append("\n".join(f"- {t}" for t in f["ticks"]) + "\n")
+    full.append("\n".join(f"**{q}** {a}" for q, a in f["faq"]) + "\n")
+full.append("\n# Guides\n")
+for g in GUIDES:
+    full.append(f"\n## {g['h1'][0].upper() + g['h1'][1:]}\n\nURL: https://overvue.in/guides/{g['slug']}/\n\n{g['lede']}\n\n"
+                + ("\n" + md(g["body"])).replace("\n### ", "\n#### ").replace("\n## ", "\n### ").strip() + "\n")
+full.append("\n# Frequently asked questions\n")
+full.append("\n".join(f"**{q}** {a}\n" for q, a in GENERAL_FAQ))
+(ROOT / "llms-full.txt").write_text("\n".join(full).replace("\n\n\n", "\n\n"), encoding="utf-8")
+print("wrote llms-full.txt")
