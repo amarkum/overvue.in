@@ -353,7 +353,7 @@ FEATURES = [
             ("Notes on your month", "<p>With Overvue AI on, the Stats tab adds a few short notes on what changed: a category that's climbing, a good savings month, a habit worth a look. Tap one to ask a follow-up.</p>"),
             ("Ask in plain words", "<p>Type a question or start from a suggested one picked for your month. Answers use your balances, budget, card bills and transactions, and suggest follow-up questions you might want to ask next.</p>"),
             ("Off until you turn it on", "<p>Overvue AI is opt-in. Before it starts, Overvue shows exactly what the AI sees: amounts, dates, categories, notes and account nicknames, never your email, password or card numbers. Chats aren't stored, and you can switch AI off in Settings at any time.</p>"),
-            ("Free questions every month", "<p>The free plan includes 10 AI questions a month and a fresh set of insights each day. Overvue Pro raises that to 300 questions a month and six insight refreshes a day.</p>"),
+            ("Free questions every month", "<p>The free plan includes 10 AI questions a month and a fresh set of insights each day. Overvue Pro raises that to 150 questions a month and four insight refreshes a day.</p>"),
         ],
         "ticks": ["Short notes on what changed this month", "Answers from your own accounts and budget", "Opt-in, with what it sees spelled out first", "Chats aren't stored", "10 free questions a month"],
         "faq": [
@@ -675,7 +675,7 @@ Key facts:
 - Budget: one monthly spending limit, what's left per day, and a month-end forecast from the current pace
 - Subscriptions: monthly and yearly totals, charges due in the next 30 days, a reminder before each renewal
 - Events: countdowns to trips, birthdays, loan end dates and deadlines; yearly events repeat
-- Overvue AI (optional, off until turned on): short notes on the month and answers to questions about your own money. It sees amounts, dates, categories, notes and account nicknames, never email, password or card numbers; chats are not stored. Free plan: 10 questions a month and a fresh set of insights daily; Pro: 300 questions a month
+- Overvue AI (optional, off until turned on): short notes on the month and answers to questions about your own money. It sees amounts, dates, categories, notes and account nicknames, never email, password or card numbers; chats are not stored. Free plan: 10 questions a month and a fresh set of insights daily; Pro: 150 questions a month
 - Data syncs to the user's own account (Google Firebase) with per-user access rules
 - Works in many currencies; banks and card issuers from 27 countries are built in
 """

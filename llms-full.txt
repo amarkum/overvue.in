@@ -9,7 +9,7 @@ Key facts:
 - Budget: one monthly spending limit, what's left per day, and a month-end forecast from the current pace
 - Subscriptions: monthly and yearly totals, charges due in the next 30 days, a reminder before each renewal
 - Events: countdowns to trips, birthdays, loan end dates and deadlines; yearly events repeat
-- Overvue AI (optional, off until turned on): short notes on the month and answers to questions about your own money. It sees amounts, dates, categories, notes and account nicknames, never email, password or card numbers; chats are not stored. Free plan: 10 questions a month and a fresh set of insights daily; Pro: 300 questions a month
+- Overvue AI (optional, off until turned on): short notes on the month and answers to questions about your own money. It sees amounts, dates, categories, notes and account nicknames, never email, password or card numbers; chats are not stored. Free plan: 10 questions a month and a fresh set of insights daily; Pro: 150 questions a month
 - Data syncs to the user's own account (Google Firebase) with per-user access rules
 - Works in many currencies; banks and card issuers from 27 countries are built in
 
@@ -225,7 +225,7 @@ Overvue AI is opt-in. Before it starts, Overvue shows exactly what the AI sees: 
 
 ### Free questions every month
 
-The free plan includes 10 AI questions a month and a fresh set of insights each day. Overvue Pro raises that to 300 questions a month and six insight refreshes a day.
+The free plan includes 10 AI questions a month and a fresh set of insights each day. Overvue Pro raises that to 150 questions a month and four insight refreshes a day.
 
 - Short notes on what changed this month
 - Answers from your own accounts and budget
